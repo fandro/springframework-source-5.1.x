@@ -62,7 +62,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	/**
 	 * Cache of singleton objects: bean name to bean instance.
 	 * 一级缓存：单例对象的缓存，也被称作单例缓存池
-	 * 用于保存BeanName和创建bean实例之间的关系，bean name --> bean instance
+	 * 用于保存BeanName和bean实例之间的关系，bean name --> bean instance
 	 */
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
 	/**
@@ -109,7 +109,7 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	private final Map<String, Set<String>> containedBeanMap = new ConcurrentHashMap<>(16);
 
 	/**
-	 * 用来保存某个bean所以来的其他bean集合。key: beanName，value: beanName所依赖的其他所有bean的名称
+	 * 用来保存某个bean所依赖其他bean集合。key: beanName，value: beanName所依赖的其他所有bean的名称
 	 */
 	private final Map<String, Set<String>> dependentBeanMap = new ConcurrentHashMap<>(64);
 
@@ -154,6 +154,8 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	}
 
 	/**
+	 * 是用来将刚刚初始化的bean对象放入到singletonFactories中，singletonFactories是个map集合，
+	 * key: bean的名称，value: 是一个ObjectFactory，当存在着循环依赖时，可以通过ObjectFactory.getObject方法获取到刚刚实例化的bean对象
 	 * Add the given singleton factory for building the specified singleton
 	 * if necessary.
 	 * <p>To be called for eager registration of singletons, e.g. to be able to
@@ -196,21 +198,21 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	////////////////////////////////////////////////////////////////////////////
 	//   ******该段代码是 Spring 解决循环引用的核心代码******
 	//
-	//   解决循环引用逻辑：使用构造函数创建一个 “不完整” 的 bean 实例（之所以说不完整，是因为此时该 bean 实例还未初始化），
-	//      并且提前曝光该 bean 实例的 ObjectFactory（提前曝光就是将 ObjectFactory 放到 singletonFactories 缓存），
-	//      通过 ObjectFactory 我们可以拿到该 bean 实例的引用，如果出现循环引用，我们可以通过缓存中的 ObjectFactory 来拿到 bean 实例，
+	//   解决循环引用逻辑：使用构造函数创建一个 “不完整”的bean实例（之所以说不完整，是因为此时该bean实例还未初始化），
+	//      并且提前曝该bean实例的 ObjectFactory（提前曝光就是将 ObjectFactory 放到 singletonFactories缓存），
+	//      通过 ObjectFactory我们可以拿到该bean实例的引用，如果出现循环引用，我们可以通过缓存中的ObjectFactory来拿到bean实例，
 	//      从而避免出现循环引用导致的死循环。
 	//
-	//    这边通过缓存中的 ObjectFactory 拿到的 bean 实例虽然拿到的是 “不完整” 的 bean 实例，但是由于是单例，所以后续初始化完成后，
-	//      该 bean 实例的引用地址并不会变，所以最终我们看到的还是完整 bean 实例。
+	//    这边通过缓存中的ObjectFactory拿到的 bean实例虽然拿到的是 “不完整”的bean实例，但是由于是单例，所以后续初始化完成后，
+	//      该bean实例的引用地址并不会变，所以最终我们看到的还是完整bean实例。
 
 
 	//	另外这个代码块中引进了4个重要缓存：
-	//		singletonObjects 缓存：beanName -> 单例 bean 对象。
-	//		earlySingletonObjects 缓存：beanName -> 单例 bean 对象，该缓存存放的是早期单例 bean 对象，可以理解成还未进行属性填充、初始化。
-	//		singletonFactories 缓存：beanName -> ObjectFactory。
-	//		singletonsCurrentlyInCreation 缓存：当前正在创建单例 bean 对象的 beanName 集合。
-	//		singletonObjects、earlySingletonObjects、singletonFactories 在这边构成了一个类似于 “三级缓存” 的概念。
+	//		singletonObjects 缓存：beanName ->单例 bean对象。
+	//		earlySingletonObjects 缓存：beanName ->单例 bean对象，该缓存存放的是早期单例 bean对象，可以理解成还未进行属性填充、初始化。
+	//		singletonFactories缓存：beanName ->ObjectFactory。
+	//		singletonsCurrentlyInCreation缓存：当前正在创建单例bean对象的beanName集合。
+	//		singletonObjects、earlySingletonObjects、singletonFactories在这边构成了一个类似于 “三级缓存”的概念。
 	////////////////////////////////////////////////////////////////////////////
 	/**
 	 * 注意：
@@ -221,18 +223,20 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	@Nullable
 	protected Object getSingleton(String beanName, boolean allowEarlyReference) {
 		// 根据beanName从单实例对象缓存中获取单例对象(singletonObjects为一个ConcurrentHashMap，就是用来保存所有的单实例Bean的,
-		//   key:beanName value:beanInstance) 相当于一级缓存
+		// key:beanName value:beanInstance) 相当于一级缓存
+		// 从一级缓存中查询
 		Object singletonObject = this.singletonObjects.get(beanName);
 		// 如果缓存中不存在，而且beanName对应的单实例Bean正在创建中.
 		if (singletonObject == null && isSingletonCurrentlyInCreation(beanName)) {
 			// 加锁操作.
 			synchronized (this.singletonObjects) {
 				// 从早期单实例对象缓存中获取单例对象（之所以称为单实例早期对象，
-				//   是因为earlySingletonObjects里面的对象都是通过提前曝光的ObjectFactory创建出来的，还未进行属性的填充）
+				// 是因为earlySingletonObjects里面的对象都是通过提前曝光的ObjectFactory创建出来的，还未进行属性的填充）
+				// 从二级缓存中查询
 				singletonObject = this.earlySingletonObjects.get(beanName);
 
-
 				// 如果早期单实例对象缓存中没有，而且允许创建早期单实例对象引用
+				// 从三级缓存中查询
 				if (singletonObject == null && allowEarlyReference) {
 					// 则从单例工厂缓存中获取BeanName对应的单例工厂.
 					ObjectFactory<?> singletonFactory = this.singletonFactories.get(beanName);

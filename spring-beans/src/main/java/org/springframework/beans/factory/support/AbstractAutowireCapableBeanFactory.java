@@ -389,9 +389,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
 		Object result = existingBean;
 		for (BeanPostProcessor processor : getBeanPostProcessors()) {
-			/** 调用InitDestroyAnnotationBeanPostProcessor来处理标注有@PostConstruct注解的方法. */
+			/** 调用InitDestroyAnnotationBeanPostProcessor的方法来处理标注有@PostConstruct注解的方法. */
 
-			/** 执行ApplicationContextAwareProcessor的postProcessBeforeInitialization*/
+			/** 执行ApplicationContextAwareProcessor的方法来添加Aware*/
 
 			Object current = processor.postProcessBeforeInitialization(result, beanName);
 			if (current == null) {
@@ -606,13 +606,13 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			 * 填充的属性包括：普通属性和使用@Autowired和@Resource注解标注的引用类型属性的赋值。使用了反射操作set方法完成赋值.
 			 *
 			 * eg: 重点操作举例：
-			 * 		【创建完成Bean之后，填充Bean的属性，填充过程中会调用InstantiationAwareBeanPostProcessorAdaptor类的postProcessProperties方法】
+			 * 	【创建完成Bean之后，填充Bean的属性，填充过程中会调用InstantiationAwareBeanPostProcessorAdaptor类的postProcessProperties方法】
 			 */
 			populateBean(beanName, mbd, instanceWrapper);
 
 			/**
 			 * 完成Bean的初始化(执行afterPropertiesSet和init-method)
-			 * 		注意：会调用@PostConstruct标注的方法，这个方法是在Bean创建完成，而且属性填充完成之后，才会被调用
+			 * 	注意：会调用@PostConstruct标注的方法，这个方法是在Bean创建完成，而且属性填充完成之后，才会被调用
 			 */
 			exposedObject = initializeBean(beanName, exposedObject, mbd);
 		}
@@ -1476,12 +1476,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			MutablePropertyValues newPvs = new MutablePropertyValues(pvs);
 			/** 如果是按照名称进行自动注入，通过属性名称获取依赖的属性值或者引用 */
 			if (mbd.getResolvedAutowireMode() == AUTOWIRE_BY_NAME) {
-				// TODO WangBing ???
 				autowireByName(beanName, mbd, bw, newPvs);
 			}
 			/** 如果是按照类型进行自动注入，则通过属性的类型获取依赖的属性值或者引用 */
 			if (mbd.getResolvedAutowireMode() == AUTOWIRE_BY_TYPE) {
-				// TODO WangBing ???
 				autowireByType(beanName, mbd, bw, newPvs);
 			}
 			pvs = newPvs;
@@ -1506,6 +1504,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 					PropertyValues pvsToUse = ibp.postProcessProperties(pvs, bw.getWrappedInstance(), beanName);
 					if (pvsToUse == null) {
 						if (filteredPds == null) {
+							// 过滤掉特定属性的自动注入，包括prepareBeanFactory过程中设置忽略的类型
 							filteredPds = filterPropertyDescriptorsForDependencyCheck(bw, mbd.allowCaching);
 						}
 						// 如果通过postProcessProperties未获取到属性值，再通过postProcessPropertyValues获取属性值
@@ -1539,6 +1538,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	/**
+	 * 如果通过bean名称查询bean并注入到属性中
 	 * Fill in any missing property values with references to
 	 * other beans in this factory if autowire is set to "byName".
 	 * @param beanName the name of the bean we're wiring up.
@@ -1973,6 +1973,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	}
 
 	/**
+	 * 执行Bean的初始化方法:
+	 *	1.先判断Bean是否实现了InitializingBean接口，如果实现了InitializingBean接口，则调用Bean对象的afterPropertiesSet方法；
+	 * 	2.然后判断Bean是否有指定init-method方法，如果指定了init-method方法，则调用bean对象的init-method指定的方法.
 	 * Give a bean a chance to react now all its properties are set,
 	 * and a chance to know about its owning bean factory (this object).
 	 * This means checking whether the bean implements InitializingBean or defines

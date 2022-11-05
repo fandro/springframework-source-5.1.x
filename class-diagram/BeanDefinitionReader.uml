@@ -3,11 +3,11 @@
   <ID>JAVA</ID>
   <OriginalElement>org.springframework.beans.factory.support.AbstractBeanDefinitionReader</OriginalElement>
   <nodes>
-    <node x="-152.0" y="142.0">org.springframework.beans.factory.xml.XmlBeanDefinitionReader</node>
-    <node x="103.5" y="64.0">org.springframework.beans.factory.support.AbstractBeanDefinitionReader</node>
-    <node x="149.0" y="-14.0">org.springframework.beans.factory.support.BeanDefinitionReader</node>
     <node x="421.0" y="142.0">org.springframework.beans.factory.groovy.GroovyBeanDefinitionReader</node>
     <node x="110.0" y="142.0">org.springframework.beans.factory.support.PropertiesBeanDefinitionReader</node>
+    <node x="-152.0" y="142.0">org.springframework.beans.factory.xml.XmlBeanDefinitionReader</node>
+    <node x="149.0" y="-14.0">org.springframework.beans.factory.support.BeanDefinitionReader</node>
+    <node x="103.5" y="64.0">org.springframework.beans.factory.support.AbstractBeanDefinitionReader</node>
   </nodes>
   <notes />
   <edges>
@@ -32,7 +32,7 @@
       <point x="0.0" y="14.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="1.5" showDependencies="false" x="278.0" y="88.0" />
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="268.0" y="78.0" />
   <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>

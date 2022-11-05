@@ -151,7 +151,7 @@ public interface ListableBeanFactory extends BeanFactory {
 			throws BeansException;
 
 	/**
-	 * 获取标注指定注解的所有bean的名称
+	 * 获取带注解的所有bean的名称
 	 *
 	 * @return the names of all matching beans
 	 * @since 4.0

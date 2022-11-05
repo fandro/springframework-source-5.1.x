@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.core.convert.ConversionService</OriginalElement>
+  <nodes>
+    <node x="1375.5" y="1090.0">org.springframework.core.convert.support.PropertiesToStringConverter</node>
+    <node x="1407.0" y="274.0">org.springframework.core.convert.support.IdToEntityConverter</node>
+    <node x="1733.5" y="1129.521505376344">org.springframework.core.convert.support.NumberToNumberConverterFactory</node>
+    <node x="1396.5" y="1378.0">org.springframework.core.serializer.support.DeserializingConverter</node>
+    <node x="1404.0" y="754.0">org.springframework.core.convert.support.ByteBufferConverter</node>
+    <node x="1393.5" y="898.0">org.springframework.core.convert.support.EnumToStringConverter</node>
+    <node x="1759.5" y="418.0">org.springframework.core.convert.converter.ConditionalGenericConverter</node>
+    <node x="1394.0" y="82.0">org.springframework.core.convert.support.StringToArrayConverter</node>
+    <node x="1375.5" y="994.0">org.springframework.core.convert.support.StringToPropertiesConverter</node>
+    <node x="1380.5" y="1570.0">org.springframework.core.convert.support.StringToCurrencyConverter</node>
+    <node x="2128.5" y="651.4623655913979">org.springframework.core.convert.converter.ConditionalConverter</node>
+    <node x="1117.0" y="1186.0">org.springframework.core.convert.ConversionService</node>
+    <node x="1363.0" y="322.0">org.springframework.core.convert.support.CollectionToCollectionConverter</node>
+    <node x="1720.0" y="893.0">org.springframework.core.convert.support.AbstractConditionalEnumConverter</node>
+    <node x="1391.5" y="658.0">org.springframework.core.convert.support.ArrayToObjectConverter</node>
+    <node x="1379.5" y="226.0">org.springframework.core.convert.support.ArrayToCollectionConverter</node>
+    <node x="1418.0" y="802.0">org.springframework.core.convert.support.StreamConverter</node>
+    <node x="1384.0" y="1714.0">org.springframework.core.convert.support.StringToBooleanConverter</node>
+    <node x="1377.0" y="562.0">org.springframework.core.convert.support.StringToCollectionConverter</node>
+    <node x="1375.0" y="466.0">org.springframework.core.convert.support.CollectionToObjectConverter</node>
+    <node x="1389.5" y="946.0">org.springframework.core.convert.support.EnumToIntegerConverter</node>
+    <node x="156.0" y="1234.0">org.springframework.format.support.FormattingConversionService</node>
+    <node x="1374.0" y="1474.0">org.springframework.core.convert.support.ZoneIdToTimeZoneConverter</node>
+    <node x="1374.0" y="-14.0">org.springframework.core.convert.support.ObjectToCollectionConverter</node>
+    <node x="1118.5" y="1234.0">org.springframework.core.convert.converter.ConverterRegistry</node>
+    <node x="1803.5" y="1306.0">org.springframework.core.convert.converter.Converter</node>
+    <node x="1391.5" y="514.0">org.springframework.core.convert.support.ObjectToArrayConverter</node>
+    <node x="1380.0" y="418.0">org.springframework.core.convert.support.ObjectToOptionalConverter</node>
+    <node x="1380.0" y="706.0">org.springframework.core.convert.support.CollectionToArrayConverter</node>
+    <node x="1406.0" y="1186.0">org.springframework.core.serializer.support.SerializingConverter</node>
+    <node x="1344.0" y="1426.0">org.springframework.core.convert.support.ZonedDateTimeToCalendarConverter</node>
+    <node x="1390.0" y="1522.0">org.springframework.core.convert.support.StringToLocaleConverter</node>
+    <node x="1404.0" y="130.0">org.springframework.core.convert.support.MapToMapConverter</node>
+    <node x="1377.5" y="610.0">org.springframework.core.convert.support.CollectionToStringConverter</node>
+    <node x="1378.0" y="1666.0">org.springframework.core.convert.support.StringToTimeZoneConverter</node>
+    <node x="1394.0" y="1282.0">org.springframework.core.convert.support.StringToUUIDConverter</node>
+    <node x="1394.0" y="370.0">org.springframework.core.convert.support.ArrayToStringConverter</node>
+    <node x="1358.0" y="34.0">org.springframework.core.convert.support.FallbackObjectToStringConverter</node>
+    <node x="1386.0" y="850.0">org.springframework.core.convert.support.ObjectToObjectConverter</node>
+    <node x="824.5" y="1090.0">org.springframework.core.convert.converter.ConvertingComparator</node>
+    <node x="1376.5" y="1618.0">org.springframework.core.convert.support.StringToCharacterConverter</node>
+    <node x="2141.5" y="418.0">org.springframework.core.convert.converter.GenericConverter</node>
+    <node x="2115.0" y="1129.521505376344">org.springframework.core.convert.converter.ConverterFactory</node>
+    <node x="780.0" y="1201.25">org.springframework.core.convert.support.ConfigurableConversionService</node>
+    <node x="-220.0" y="1234.0">org.springframework.format.support.DefaultFormattingConversionService</node>
+    <node x="1389.0" y="1042.0">org.springframework.core.convert.support.ObjectToStringConverter</node>
+    <node x="1396.5" y="178.0">org.springframework.core.convert.support.ArrayToArrayConverter</node>
+    <node x="1385.0" y="1330.0">org.springframework.core.convert.support.StringToCharsetConverter</node>
+    <node x="1369.0" y="1138.0">org.springframework.core.convert.support.NumberToCharacterConverter</node>
+    <node x="479.0" y="1201.25">org.springframework.core.convert.support.GenericConversionService</node>
+    <node x="169.5" y="1186.0">org.springframework.core.convert.support.DefaultConversionService</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.core.convert.support.StringToCharacterConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="130.5" y="0.0" />
+      <point x="1694.0" y="1632.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToCharsetConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="122.0" y="0.0" />
+      <point x="1652.0" y="1344.0" />
+      <point x="1652.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToArrayConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="113.0" y="0.0" />
+      <point x="1688.0" y="96.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StreamConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="89.0" y="0.0" />
+      <point x="1688.0" y="816.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.PropertiesToStringConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="131.5" y="0.0" />
+      <point x="1694.0" y="1104.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.AbstractConditionalEnumConverter" target="org.springframework.core.convert.converter.ConditionalConverter" relationship="REALIZATION">
+      <point x="172.5" y="0.0" />
+      <point x="2090.0" y="907.0" />
+      <point x="2090.0" y="665.462" />
+      <point x="-104.0" y="-3.655913978946046E-4" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToPropertiesConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="131.5" y="0.0" />
+      <point x="1694.0" y="1008.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.EnumToStringConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="113.5" y="0.0" />
+      <point x="1694.0" y="912.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.serializer.support.SerializingConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="96.5" y="14.0" />
+      <point x="1603.5" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.format.support.FormattingConversionService" target="org.springframework.core.convert.support.GenericConversionService" relationship="GENERALIZATION">
+      <point x="135.5" y="0.0" />
+      <point x="453.0" y="1248.0" />
+      <point x="453.0" y="1215.25" />
+      <point x="-123.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.format.support.DefaultFormattingConversionService" target="org.springframework.format.support.FormattingConversionService" relationship="GENERALIZATION">
+      <point x="163.0" y="0.0" />
+      <point x="-135.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ByteBufferConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="103.0" y="0.0" />
+      <point x="1688.0" y="768.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.MapToMapConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="103.0" y="0.0" />
+      <point x="1688.0" y="144.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToCollectionConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="130.0" y="0.0" />
+      <point x="1688.0" y="576.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ZoneIdToTimeZoneConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="133.0" y="0.0" />
+      <point x="1694.0" y="1488.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ConfigurableConversionService" target="org.springframework.core.convert.converter.ConverterRegistry" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="14.0" />
+      <point x="922.5" y="1248.0" />
+      <point x="-93.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ObjectToStringConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="118.0" y="0.0" />
+      <point x="1694.0" y="1056.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.serializer.support.DeserializingConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="110.5" y="0.0" />
+      <point x="1652.0" y="1392.0" />
+      <point x="1652.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToBooleanConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="123.0" y="0.0" />
+      <point x="1694.0" y="1728.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.IdToEntityConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="100.0" y="0.0" />
+      <point x="1688.0" y="288.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.converter.ConditionalGenericConverter" target="org.springframework.core.convert.converter.GenericConverter" relationship="INTERFACE_GENERALIZATION">
+      <point x="133.0" y="0.0" />
+      <point x="-91.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.CollectionToStringConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="129.5" y="0.0" />
+      <point x="1688.0" y="624.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.format.support.FormattingConversionService" target="org.springframework.core.convert.converter.ConverterRegistry" relationship="REALIZATION">
+      <point x="0.0" y="14.0" />
+      <point x="291.5" y="1759.5" />
+      <point x="1211.5" y="1759.5" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.EnumToStringConverter" target="org.springframework.core.convert.support.AbstractConditionalEnumConverter" relationship="GENERALIZATION">
+      <point x="-113.5" y="0.0" />
+      <point x="1366.0" y="912.0" />
+      <point x="1366.0" y="920.5" />
+      <point x="1092.0" y="920.5" />
+      <point x="1092.0" y="-31.5" />
+      <point x="2043.0" y="-31.5" />
+      <point x="150.5" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.CollectionToCollectionConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="135.5" y="14.0" />
+      <point x="1642.5" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToUUIDConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="113.0" y="0.0" />
+      <point x="1652.0" y="1296.0" />
+      <point x="1652.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.CollectionToObjectConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="132.0" y="0.0" />
+      <point x="1688.0" y="480.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToCurrencyConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="126.5" y="0.0" />
+      <point x="1694.0" y="1584.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.FallbackObjectToStringConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="149.0" y="0.0" />
+      <point x="1688.0" y="48.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ZonedDateTimeToCalendarConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="163.0" y="0.0" />
+      <point x="1694.0" y="1440.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.NumberToCharacterConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="138.0" y="0.0" />
+      <point x="1694.0" y="1152.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.converter.ConditionalGenericConverter" target="org.springframework.core.convert.converter.ConditionalConverter" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="14.0" />
+      <point x="1892.5" y="528.0" />
+      <point x="2232.5" y="528.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.CollectionToArrayConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="127.0" y="0.0" />
+      <point x="1688.0" y="720.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ArrayToStringConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="113.0" y="0.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.NumberToNumberConverterFactory" target="org.springframework.core.convert.converter.ConditionalConverter" relationship="REALIZATION">
+      <point x="159.0" y="4.946236559320027E-4" />
+      <point x="2090.0" y="1143.522" />
+      <point x="2090.0" y="665.462" />
+      <point x="-104.0" y="-3.655913978946046E-4" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ArrayToCollectionConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="127.5" y="0.0" />
+      <point x="1688.0" y="240.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ConfigurableConversionService" target="org.springframework.core.convert.ConversionService" relationship="INTERFACE_GENERALIZATION">
+      <point x="142.5" y="-6.5" />
+      <point x="-94.5" y="8.75" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ObjectToOptionalConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="127.0" y="0.0" />
+      <point x="1688.0" y="432.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ArrayToArrayConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="110.5" y="0.0" />
+      <point x="1688.0" y="192.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ObjectToObjectConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="121.0" y="0.0" />
+      <point x="1688.0" y="864.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.GenericConversionService" target="org.springframework.core.convert.support.ConfigurableConversionService" relationship="REALIZATION">
+      <point x="123.5" y="0.0" />
+      <point x="-142.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToTimeZoneConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="129.0" y="0.0" />
+      <point x="1694.0" y="1680.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.DefaultConversionService" target="org.springframework.core.convert.support.GenericConversionService" relationship="GENERALIZATION">
+      <point x="122.0" y="0.0" />
+      <point x="453.0" y="1200.0" />
+      <point x="453.0" y="1215.25" />
+      <point x="-123.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.NumberToNumberConverterFactory" target="org.springframework.core.convert.converter.ConverterFactory" relationship="REALIZATION">
+      <point x="0.0" y="14.0" />
+      <point x="1892.5" y="1193.5" />
+      <point x="2232.5" y="1193.5" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ObjectToArrayConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="115.5" y="0.0" />
+      <point x="1688.0" y="528.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ObjectToCollectionConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="133.0" y="0.0" />
+      <point x="1688.0" y="0.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.StringToLocaleConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="117.0" y="0.0" />
+      <point x="1694.0" y="1536.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.ArrayToObjectConverter" target="org.springframework.core.convert.converter.ConditionalGenericConverter" relationship="REALIZATION">
+      <point x="115.5" y="0.0" />
+      <point x="1688.0" y="672.0" />
+      <point x="1688.0" y="384.0" />
+      <point x="1892.5" y="384.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.EnumToIntegerConverter" target="org.springframework.core.convert.converter.Converter" relationship="REALIZATION">
+      <point x="117.5" y="0.0" />
+      <point x="1694.0" y="960.0" />
+      <point x="1694.0" y="1248.0" />
+      <point x="1892.5" y="1248.0" />
+      <point x="0.0" y="-14.0" />
+    </edge>
+    <edge source="org.springframework.core.convert.support.EnumToIntegerConverter" target="org.springframework.core.convert.support.AbstractConditionalEnumConverter" relationship="GENERALIZATION">
+      <point x="-117.5" y="0.0" />
+      <point x="1366.0" y="960.0" />
+      <point x="1366.0" y="920.5" />
+      <point x="1092.0" y="920.5" />
+      <point x="1092.0" y="-31.5" />
+      <point x="2043.0" y="-31.5" />
+      <point x="150.5" y="-14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.4900662251655629" showDependencies="false" x="1065.0000000000002" y="864.0000000000001" />
+  <SelectedNodes>
+    <node>org.springframework.core.convert.converter.Converter</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

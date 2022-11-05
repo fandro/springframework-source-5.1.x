@@ -780,20 +780,18 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	}
 
 	/**
-	 * 在之后的内容你可能会频繁的见到 “MergedBeanDefinition” 这个词，因此这边先稍微讲解一下，有助于你更好的理解。
-	 MergedBeanDefinition：这个词其实不是一个官方词，但是很接近，该词主要是用来表示 “合并的 bean 定义”，因为每次都写 “合并的 bean 定义” 有点太绕口，
-	    因此我在之后的注释或解析中或统一使用 MergedBeanDefinition 来表示 “合并的 bean 定义”。
-
-	 之所以称之为 “合并的”，是因为存在 “子定义” 和 “父定义” 的情况。对于一个 bean 定义来说，可能存在以下几种情况：
-		 (1)该 BeanDefinition 存在 “父定义”：首先使用 “父定义” 的参数构建一个 RootBeanDefinition，然后再使用该 BeanDefinition 的参数来进行覆盖。
-		 (2)该 BeanDefinition 不存在 “父定义”，并且该 BeanDefinition 的类型是 RootBeanDefinition：直接返回该 RootBeanDefinition 的一个克隆。
-		 (3)该 BeanDefinition 不存在 “父定义”，但是该 BeanDefinition 的类型不是 RootBeanDefinition：使用该 BeanDefinition 的参数构建一个 RootBeanDefinition。
-
-	 之所以区分出2和3，是因为通常 BeanDefinition 在之前加载到 BeanFactory 中的时候，通常是被封装成 GenericBeanDefinition 或 ScannedGenericBeanDefinition，
-	 	但是从这边之后 bean 的后续流程处理都是针对 RootBeanDefinition，因此在这边会统一将 BeanDefinition 转换成 RootBeanDefinition。
-
-	 在我们日常使用的过程中，通常会是上面的第3种情况。如果我们使用 XML 配置来注册 bean，则该 bean 定义会被封装成：GenericBeanDefinition；
-	    如果我们使用注解的方式来注册 bean，也就是<context:component-scan /> + @Compoment，则该 bean 定义会被封装成 ScannedGenericBeanDefinition。
+	 * 在之后的内容你可能会频繁的见到 “MergedBeanDefinition”这个词，因此这边先稍微讲解一下，有助于你更好的理解。
+	 * MergedBeanDefinition：这个词其实不是一个官方词，但是很接近，该词主要是用来表示“合并的 bean 定义”，因为每次都写 “合并的 bean 定义” 有点太绕口，
+	 * 因此我在之后的注释或解析中或统一使用 MergedBeanDefinition来表示 “合并的 bean 定义”。
+	 * 之所以称之为 “合并的”，是因为存在 “子定义”和 “父定义”的情况。对于一个bean定义来说，可能存在以下几种情况：
+	 * 	 (1)该BeanDefinition存在 “父定义”：首先使用 “父定义”的参数构建一个RootBeanDefinition，然后再使用该BeanDefinition的参数来进行覆盖。
+	 * 	 (2)该BeanDefinition不存在 “父定义”，并且该 BeanDefinition的类型是RootBeanDefinition：直接返回该RootBeanDefinition的一个克隆。
+	 * 	 (3)该BeanDefinition不存在 “父定义”，但是该 BeanDefinition的类型不是RootBeanDefinition：使用该 BeanDefinition的参数构建一个RootBeanDefinition。
+	 *
+	 * 之所以区分出2和3，是因为通常BeanDefinition在之前加载到BeanFactory 中的时候，通常是被封装成GenericBeanDefinition或 ScannedGenericBeanDefinition，
+	 * 	但是从这边之后bean的后续流程处理都是针对RootBeanDefinition，因此在这边会统一将BeanDefinition转换成RootBeanDefinition。
+	 * 在我们日常使用的过程中，通常会是上面的第3种情况。如果我们使用 XML配置来注册bean，则该bean定义会被封装成：GenericBeanDefinition；
+	 * 如果我们使用注解的方式来注册bean，也就是<context:component-scan /> + @Compoment，则该bean定义会被封装成 ScannedGenericBeanDefinition。
 	 */
 	@Override
 	public void preInstantiateSingletons() throws BeansException {
@@ -810,7 +808,6 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 			RootBeanDefinition bd = getMergedLocalBeanDefinition(beanName);
 			// 如果bd对应的Bean实例满足：(不是抽象类 && 是单例 && 不是懒加载)
 			if (!bd.isAbstract() && bd.isSingleton() && !bd.isLazyInit()) {
-
 				// 判断BeanName对应的Bean实例是否是FactoryBean.
 				if (isFactoryBean(beanName)) {
 					// 通过beanName获取FactoryBean的实例，factoryBean的名称是："&" + beanName
@@ -828,7 +825,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 						 *
 						 *
 						 *  AccessController.doPrivileged()方法的例子：
-						 *  假设有这样一种情况：A程序想在 C:\\Users\\Jack\\Desktop\\test1  这个目录中新建一个文件，但是它没有相应的权限，
+						 *  假设有这样一种情况：A程序想在 C:\\Users\\Jack\\Desktop\\test1 这个目录中新建一个文件，但是它没有相应的权限，
 						 *   但是它引用了另外一个Jar包B，刚好B有权限在C:\\Users\\Jack\\Desktop\\test1目录中新建文件，
 						 *   还有更巧的是B在新建文件的时候采用的是AccessController.doPrivileged方法进行的，这种情况下，A就可以调用B的创建文件的方法进行创建文件了。
 						 */
@@ -856,8 +853,8 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
 		/**
 		 * 上一步for循环中已经创建完了所有的单实例Bean，这个for循环中，会拿出所有的单实例Bean，
-		 *   然后遍历，判断单实例bean是否实现了SmartInitializingSingleton接口，如果实现了该接口，
-		 *   则调用单实例Bean的afterSingletonsInstantiated方法
+		 *  然后遍历，判断单实例bean是否实现了SmartInitializingSingleton接口，如果实现了该接口，
+		 *  则调用单实例Bean的afterSingletonsInstantiated方法
 		 */
 		for (String beanName : beanNames) {
 			// 获取beanName对应的bean实例

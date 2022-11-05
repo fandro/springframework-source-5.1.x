@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.context.event.AbstractApplicationEventMulticaster</OriginalElement>
+  <nodes>
+    <node x="421.0" y="111.0">org.springframework.context.event.GenericApplicationListenerAdapter</node>
+    <node x="-25.0" y="569.0">org.springframework.context.event.EventListenerFactory</node>
+    <node x="79.0" y="647.0">org.springframework.transaction.event.TransactionalEventListenerFactory</node>
+    <node x="-207.0" y="647.0">org.springframework.context.event.DefaultEventListenerFactory</node>
+    <node x="-157.0" y="111.0">org.springframework.context.event.ApplicationListenerMethodAdapter</node>
+    <node x="318.75" y="-65.0">org.springframework.context.ApplicationListener</node>
+    <node x="-23.5" y="496.0">org.springframework.context.event.SimpleApplicationEventMulticaster</node>
+    <node x="-207.0" y="340.0">org.springframework.beans.factory.BeanClassLoaderAware</node>
+    <node x="-31.916666666666686" y="262.0">org.springframework.beans.factory.Aware</node>
+    <node x="38.0" y="340.0">org.springframework.beans.factory.BeanFactoryAware</node>
+    <node x="177.0" y="111.0">org.springframework.context.event.SourceFilteringListener</node>
+    <node x="356.75" y="-143.0">java.util.EventListener</node>
+    <node x="-47.0" y="418.0">org.springframework.context.event.AbstractApplicationEventMulticaster</node>
+    <node x="248.0" y="340.0">org.springframework.context.event.ApplicationEventMulticaster</node>
+    <node x="420.9375" y="13.0">org.springframework.context.event.SmartApplicationListener</node>
+    <node x="126.4375" y="13.0">org.springframework.context.event.GenericApplicationListener</node>
+    <node x="-207.0" y="189.0">org.springframework.transaction.event.ApplicationListenerMethodTransactionalAdapter</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.transaction.event.ApplicationListenerMethodTransactionalAdapter" target="org.springframework.context.event.ApplicationListenerMethodAdapter" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.AbstractApplicationEventMulticaster" target="org.springframework.beans.factory.BeanFactoryAware" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.transaction.event.TransactionalEventListenerFactory" target="org.springframework.context.event.EventListenerFactory" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="234.0" y="622.0" />
+      <point x="80.0" y="622.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.GenericApplicationListenerAdapter" target="org.springframework.context.event.GenericApplicationListener" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="577.5" y="71.0" />
+      <point x="252.9375" y="71.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.AbstractApplicationEventMulticaster" target="org.springframework.context.event.ApplicationEventMulticaster" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="133.0" y="393.0" />
+      <point x="379.5" y="393.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.BeanClassLoaderAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="-94.5" y="315.0" />
+      <point x="16.083333333333314" y="315.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.AbstractApplicationEventMulticaster" target="org.springframework.beans.factory.BeanClassLoaderAware" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="133.0" y="393.0" />
+      <point x="-94.5" y="393.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.SimpleApplicationEventMulticaster" target="org.springframework.context.event.AbstractApplicationEventMulticaster" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.SourceFilteringListener" target="org.springframework.context.event.SmartApplicationListener" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="289.0" y="91.0" />
+      <point x="541.4375" y="91.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.BeanFactoryAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="133.0" y="315.0" />
+      <point x="16.083333333333314" y="315.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.ApplicationListener" target="java.util.EventListener" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.GenericApplicationListener" target="org.springframework.context.ApplicationListener" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="252.9375" y="-12.0" />
+      <point x="433.25" y="-12.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.DefaultEventListenerFactory" target="org.springframework.context.event.EventListenerFactory" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="-74.0" y="622.0" />
+      <point x="80.0" y="622.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.ApplicationListenerMethodAdapter" target="org.springframework.context.event.GenericApplicationListener" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="91.0" />
+      <point x="252.9375" y="91.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.GenericApplicationListenerAdapter" target="org.springframework.context.event.SmartApplicationListener" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="577.5" y="61.0" />
+      <point x="541.4375" y="61.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.SmartApplicationListener" target="org.springframework.context.ApplicationListener" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="541.4375" y="-12.0" />
+      <point x="433.25" y="-12.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.context.event.SourceFilteringListener" target="org.springframework.context.event.GenericApplicationListener" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="289.0" y="81.0" />
+      <point x="252.9375" y="81.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0596658711217184" showDependencies="false" x="273.4999999999999" y="275.99999999999994" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

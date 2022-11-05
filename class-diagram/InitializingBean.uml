@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.beans.factory.InitializingBean</OriginalElement>
+  <nodes>
+    <node x="567.0" y="286.0">org.springframework.beans.factory.config.ProviderCreatingFactoryBean</node>
+    <node x="129.0" y="526.0">org.springframework.beans.factory.wiring.BeanConfigurerSupport</node>
+    <node x="570.5" y="346.0">org.springframework.beans.factory.config.MethodInvokingFactoryBean</node>
+    <node x="114.5" y="346.0">org.springframework.beans.factory.config.FieldRetrievingFactoryBean</node>
+    <node x="89.5" y="406.0">org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer</node>
+    <node x="112.5" y="-14.0">org.springframework.beans.factory.config.AbstractFactoryBean</node>
+    <node x="617.5" y="166.0">org.springframework.beans.factory.config.SetFactoryBean</node>
+    <node x="544.5" y="106.0">org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean</node>
+    <node x="139.0" y="46.0">org.springframework.beans.factory.config.MethodInvokingBean</node>
+    <node x="67.5" y="286.0">org.springframework.aop.framework.AbstractSingletonProxyFactoryBean</node>
+    <node x="504.0" y="-14.0">org.springframework.beans.factory.serviceloader.AbstractServiceLoaderBasedFactoryBean</node>
+    <node x="-199.0" y="-14.0">org.springframework.beans.factory.InitializingBean</node>
+    <node x="1009.0" y="-14.0">org.springframework.beans.factory.serviceloader.ServiceListFactoryBean</node>
+    <node x="617.0" y="46.0">org.springframework.beans.factory.config.ListFactoryBean</node>
+    <node x="114.0" y="226.0">org.springframework.beans.factory.config.ServiceLocatorFactoryBean</node>
+    <node x="613.5" y="226.0">org.springframework.beans.factory.config.MapFactoryBean</node>
+    <node x="1022.0" y="46.0">org.springframework.beans.factory.serviceloader.ServiceFactoryBean</node>
+    <node x="113.0" y="166.0">org.springframework.beans.factory.config.YamlPropertiesFactoryBean</node>
+    <node x="131.5" y="106.0">org.springframework.beans.factory.config.PropertiesFactoryBean</node>
+    <node x="135.0" y="466.0">org.springframework.beans.factory.config.YamlMapFactoryBean</node>
+    <node x="996.5" y="106.0">org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean" target="org.springframework.beans.factory.config.AbstractFactoryBean" relationship="GENERALIZATION">
+      <point x="-158.5" y="0.0" />
+      <point x="425.0" y="120.0" />
+      <point x="425.0" y="0.0" />
+      <point x="130.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.ListFactoryBean" target="org.springframework.beans.factory.config.AbstractFactoryBean" relationship="GENERALIZATION">
+      <point x="-86.0" y="0.0" />
+      <point x="483.0" y="60.0" />
+      <point x="483.0" y="120.0" />
+      <point x="425.0" y="120.0" />
+      <point x="425.0" y="0.0" />
+      <point x="130.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.serviceloader.AbstractServiceLoaderBasedFactoryBean" target="org.springframework.beans.factory.config.AbstractFactoryBean" relationship="GENERALIZATION">
+      <point x="-199.0" y="0.0" />
+      <point x="483.0" y="0.0" />
+      <point x="483.0" y="120.0" />
+      <point x="425.0" y="120.0" />
+      <point x="425.0" y="0.0" />
+      <point x="130.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.MethodInvokingBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-104.0" y="0.0" />
+      <point x="43.0" y="60.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.ProviderCreatingFactoryBean" target="org.springframework.beans.factory.config.AbstractFactoryBean" relationship="GENERALIZATION">
+      <point x="-136.0" y="0.0" />
+      <point x="483.0" y="300.0" />
+      <point x="483.0" y="120.0" />
+      <point x="425.0" y="120.0" />
+      <point x="425.0" y="0.0" />
+      <point x="130.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.ServiceLocatorFactoryBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-129.0" y="0.0" />
+      <point x="43.0" y="240.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.serviceloader.ServiceFactoryBean" target="org.springframework.beans.factory.serviceloader.AbstractServiceLoaderBasedFactoryBean" relationship="GENERALIZATION">
+      <point x="-101.0" y="0.0" />
+      <point x="963.0" y="60.0" />
+      <point x="963.0" y="0.0" />
+      <point x="199.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.SetFactoryBean" target="org.springframework.beans.factory.config.AbstractFactoryBean" relationship="GENERALIZATION">
+      <point x="-85.5" y="0.0" />
+      <point x="483.0" y="180.0" />
+      <point x="483.0" y="120.0" />
+      <point x="425.0" y="120.0" />
+      <point x="425.0" y="0.0" />
+      <point x="130.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-128.5" y="0.0" />
+      <point x="43.0" y="360.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.wiring.BeanConfigurerSupport" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-114.0" y="0.0" />
+      <point x="43.0" y="540.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.YamlMapFactoryBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-108.0" y="0.0" />
+      <point x="43.0" y="480.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.serviceloader.ServiceLoaderFactoryBean" target="org.springframework.beans.factory.serviceloader.AbstractServiceLoaderBasedFactoryBean" relationship="GENERALIZATION">
+      <point x="-126.5" y="0.0" />
+      <point x="963.0" y="120.0" />
+      <point x="963.0" y="0.0" />
+      <point x="199.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.PropertiesFactoryBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-111.5" y="0.0" />
+      <point x="43.0" y="120.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.aop.framework.AbstractSingletonProxyFactoryBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-175.5" y="0.0" />
+      <point x="43.0" y="300.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-153.5" y="0.0" />
+      <point x="43.0" y="420.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.AbstractFactoryBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-130.5" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.MapFactoryBean" target="org.springframework.beans.factory.config.AbstractFactoryBean" relationship="GENERALIZATION">
+      <point x="-89.5" y="0.0" />
+      <point x="483.0" y="240.0" />
+      <point x="483.0" y="120.0" />
+      <point x="425.0" y="120.0" />
+      <point x="425.0" y="0.0" />
+      <point x="130.5" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.MethodInvokingFactoryBean" target="org.springframework.beans.factory.config.MethodInvokingBean" relationship="GENERALIZATION">
+      <point x="-132.5" y="0.0" />
+      <point x="413.0" y="360.0" />
+      <point x="413.0" y="60.0" />
+      <point x="104.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.YamlPropertiesFactoryBean" target="org.springframework.beans.factory.InitializingBean" relationship="REALIZATION">
+      <point x="-130.0" y="0.0" />
+      <point x="43.0" y="180.0" />
+      <point x="43.0" y="0.0" />
+      <point x="82.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.serviceloader.ServiceListFactoryBean" target="org.springframework.beans.factory.serviceloader.AbstractServiceLoaderBasedFactoryBean" relationship="GENERALIZATION">
+      <point x="-114.0" y="0.0" />
+      <point x="199.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.0" showDependencies="false" x="525.5" y="270.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

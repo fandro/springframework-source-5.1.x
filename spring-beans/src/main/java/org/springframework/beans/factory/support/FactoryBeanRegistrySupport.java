@@ -46,7 +46,7 @@ import org.springframework.lang.Nullable;
 public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanRegistry {
 
 	/**
-	 * 缓存FactoryBean创建的bean对象，key为beanName
+	 * 缓存FactoryBean创建的bean对象，key为beanName,value是bean实例
 	 */
 	private final Map<String, Object> factoryBeanObjectCache = new ConcurrentHashMap<>(16);
 
@@ -114,7 +114,7 @@ public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanReg
 				Object object = this.factoryBeanObjectCache.get(beanName);
 				if (object == null) {
 
-					// 回调FactoryBean的getObject方法
+					// 回调FactoryBean的getObject方法创建对象
 					object = doGetObjectFromFactoryBean(factory, beanName);
 
 					// Only post-process and store if not put there already during getObject() call above

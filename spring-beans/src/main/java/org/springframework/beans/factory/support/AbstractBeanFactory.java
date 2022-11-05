@@ -188,6 +188,7 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	}
 
 	/**
+	 * 创建对象实例
 	 * Return an instance, which may be shared or independent, of the specified bean.
 	 * @param name the name of the bean to retrieve
 	 * @param requiredType the required type of the bean to retrieve
@@ -197,10 +198,6 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 * not for actual use
 	 * @return an instance of the bean
 	 * @throws BeansException if the bean could not be created
-	 *
-	 *
-	 *
-	 * doGetBean(name, null, null, false);
 	 */
 	@SuppressWarnings("unchecked")
 	protected <T> T doGetBean(final String name, @Nullable final Class<T> requiredType,
@@ -280,14 +277,6 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 				if (dependsOn != null) {
 					for (String dep : dependsOn) {
 						// 判断是否存在着循环依赖. a->b b->c c->a这种情况
-						/**
-						 * 该步骤里面会去解决bean之间的循环依赖，例如如下的bean依赖情况：
-						 *
-						 * <bean name="classA" class="com.wb.spring.finishBeanFactoryInitialization.domain.ClassA" depends-on="classB"></bean>
-						 * <bean name="classB" class="com.wb.spring.finishBeanFactoryInitialization.domain.ClassB" depends-on="classA"></bean>
-						 *
-						 * 通过acx.getBean("classA");去获取classA对应的bean时，就会提示循环依赖异常。
-						 */
 						if (isDependent(beanName, dep)) {
 							throw new BeanCreationException(mbd.getResourceDescription(), beanName,
 									"Circular depends-on relationship between '" + beanName + "' and '" + dep + "'");
@@ -322,16 +311,15 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 							throw ex;
 						}
 					});
+
 					/**
+					 * 如果是FactoryBean则使用FactoryBean创建对象，如果不是则直接返回。
 					 * 从bean的实例中获取对象.上述创建出来的bean对象sharedInstance只代表了bean的初始状态，
 					 *   并不一定是我们最终需要的bean。
-					 *
 					 * 举个例子，假如我们需要对工厂bean进行处理，那么这里得到的其实是工厂bean的初始状态，
 					 *   但是我们真正需要的是工厂bean中定义的 factory-method方法中返回的bean，
 					 *   而getObjectForBeanInstance方法就是完成这个工作的。
-					 *
-					 *
-					 *   真实作用：如果一个类实现了FactoryBean接口，则上述bean创建完成之后，其实只是创建好了工厂bean，但是真实的应用
+					 * 真实作用：如果一个类实现了FactoryBean接口，则上述bean创建完成之后，其实只是创建好了工厂bean，但是真实的应用
 					 *    bean还未创建，此处将会回调FactoryBean的getObject自定义方法进行应用bean的创建工作。
 					 */
 					bean = getObjectForBeanInstance(sharedInstance, name, beanName, mbd);
@@ -1039,10 +1027,10 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 		}
 		// 父BeanFactory的解释：
 		/**
-		 *  在 Spring 中可能存在多个 BeanFactory，多个 BeanFactory 可能存在 “父工厂” 与 “子工厂” 的关系。
-		 *    最常见的例子就是：Spring MVC 的 BeanFactory 和 Spring 的 BeanFactory，通常情况下，Spring 的 BeanFactory 是 “父工厂”，
-		 *    Spring MVC 的 BeanFactory 是 “子工厂”，在 Spring 中，子工厂可以使用父工厂的 BeanDefinition。
-		 *    因而，如果在当前 BeanFactory 中找不到，而又存在父工厂，则会去父工厂中查找。
+		 *  在 Spring中可能存在多个BeanFactory，多个BeanFactory可能存在 “父工厂”与 “子工厂”的关系。
+		 *    最常见的例子就是：Spring MVC的BeanFactory和Spring的 BeanFactory，通常情况下，Spring的BeanFactory是 “父工厂”，
+		 *    Spring MVC的BeanFactory是 “子工厂”，在Spring中，子工厂可以使用父工厂的BeanDefinition。
+		 *    因而，如果在当前BeanFactory中找不到，而又存在父工厂，则会去父工厂中查找。
 		 */
 
 		// Resolve merged bean definition locally.
@@ -1345,9 +1333,9 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 							// 则获取父定义的MergedBeanDefinition（也就是bd的爷爷定义...）
 
 							/**
-							 * 一般情况下，Spring 通过反射机制利用 bean 的  class 属性指定实现类来实例化 bean。
-							 *   而 FactoryBean 是一种特殊的 bean，它是个工厂 bean，可以自己创建 bean 实例，如果一个类实现了 FactoryBean 接口，
-							 *   则该类可以自己定义创建实例对象的方法，只需要实现它的 getObject() 方法。
+							 * 一般情况下，Spring通过反射机制利用bean的 class属性指定实现类来实例化bean。
+							 *   而 FactoryBean是一种特殊的bean，它是个工厂bean，可以自己创建bean实例，如果一个类实现了FactoryBean接口，
+							 *   则该类可以自己定义创建实例对象的方法，只需要实现它的getObject() 方法。
 							 *
 							 * 很多中间件都利用 FactoryBean 来进行扩展。例如：
 							 *
@@ -1368,9 +1356,9 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 									}
 								}
 							 注意：
-							 为了区分 “FactoryBean” 和 “FactoryBean 创建的 bean 实例”，Spring 使用了 “&” 前缀。假设我们的 beanName 为 apple，
-							   则 getBean("apple") 获得的是 AppleFactoryBean 通过 getObject() 方法创建的 bean 实例；
-							   而 getBean("&apple") 获得的是 AppleFactoryBean 本身。
+							 为了区分 “FactoryBean”和 “FactoryBean创建的bean 实例”，Spring使用了“&”前缀。假设我们的beanName为apple，
+							   则getBean("apple")获得的是AppleFactoryBean通过getObject() 方法创建的bean实例；
+							   而 getBean("&apple")获得的是AppleFactoryBean本身。
 							 *
 							 */
 							pbd = getMergedBeanDefinition(parentBeanName);
@@ -1743,7 +1731,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	}
 
 	/**
-	 * 获取给定bean实例的对象，如果是FactoryBean，则获取bean实例本身或其创建的对象。
+	 * 如果是FactoryBean则使用FactoryBean创建的对象，如果不是则直接返回，三种情况：
+	 * 1. 普通bean直接返回
+	 * 2. FactoryBean时先从FactoryBean的缓存中获取
+	 * 3. FactoryBean时FactoryBean的缓存中不存在，则新建对象
+	 * 背景：
+	 * 如果一个类实现了FactoryBean接口，则上述bean创建完成之后，其实只是创建好了工厂bean，但是真实的应用
+	 * bean还未创建，此处将会回调FactoryBean的getObject自定义方法进行应用bean的创建工作。
 	 * Get the object for the given bean instance, either the bean
 	 * instance itself or its created object in case of a FactoryBean.
 	 * @param beanInstance the shared bean instance
@@ -1754,9 +1748,10 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 	 */
 	protected Object getObjectForBeanInstance(
 			Object beanInstance, String name, String beanName, @Nullable RootBeanDefinition mbd) {
-
 		// Don't let calling code try to dereference the factory if the bean isn't a factory.
-		// 如果是FactoryBean则直接返回，条件: 不为null而且以&开头
+		// name和beanInstance都符合FactoryBean条件时返回，否则抛出异常
+		// 判断1：name是以&开头且beanInstance是NullBean时返回beanInstance；
+		// 判断1：name是以&开头但beanInstance不是FactoryBean类型，这时抛出异常；
 		if (BeanFactoryUtils.isFactoryDereference(name)) {
 			if (beanInstance instanceof NullBean) {
 				return beanInstance;
@@ -1769,11 +1764,13 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
 		// Now we have the bean instance, which may be a normal bean or a FactoryBean.
 		// If it's a FactoryBean, we use it to create a bean instance, unless the
 		// caller actually wants a reference to the factory.
-		// 如果不是FactoryBean或者bean的名称是以&开头，则直接返回上一步中已经创建好的bean对象.
+		// 不是FactoryBean类型是普通bean对象时返回对象
+		// 不是FactoryBean类型条件是：不是FactoryBean类型 或者 bean的名称是以&开头
 		if (!(beanInstance instanceof FactoryBean) || BeanFactoryUtils.isFactoryDereference(name)) {
 			return beanInstance;
 		}
 
+		// 到这步时beanInstance就是FactoryBean类型了，可以创建对象了
 		Object object = null;
 		if (mbd == null) {
 			// 先从FactoryBean对应的缓存factoryBeanObjectCache中获取

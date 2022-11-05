@@ -81,7 +81,7 @@ class TypeHelper {
 	}
 
 	/**
-	 * Return the super class of the specified {@link Element} or null if this
+	 * Return the super class of the specified{@link Element} or null if this
 	 * {@code element} represents {@link Object}.
 	 */
 	public Element getSuperClass(Element element) {

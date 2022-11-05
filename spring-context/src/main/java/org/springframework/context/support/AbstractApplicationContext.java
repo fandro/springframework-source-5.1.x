@@ -566,7 +566,7 @@ public abstract class AbstractApplicationContext
 
 				/**
 				 * 5. 执行beanFactory的后置处理器(BeanFactoryPostProcessor)
-				 *
+				 *  总体思路：先执行BeanDefinitionRegistryPostProcessor，再执行BeanFactoryPostProcessor;
 				 * 1. 执行BeanDefinitionRegistryPostProcessor接口的postProcessBeanDefinitionRegistry方法，再执行postProcessBeanFactory方法
 				 *   1.1 执行postProcessBeanDefinitionRegistry方法过程中，按照优先级接口PriorityOrdered，Ordered和其他这三种情况依次执行，
 				 *   其中PriorityOrdered和Ordered涉及到排序
@@ -582,21 +582,14 @@ public abstract class AbstractApplicationContext
 				invokeBeanFactoryPostProcessors(beanFactory);
 
 				/**
-				 * 6.注册所有bean的后置处理器(BeanPostProcessor的实现类),用来拦截Bean的创建
-				 *
-				 * 注册所有实现了BeanPostProcessor接口的后置处理器
-				 *   执行过程中，也是先执行实现了优先级接口PriorityOrdered接口的BeanPostProcessor的addBeanPostProcessor方法
-				 *   然后执行实现了Ordered接口的...
-				 *   最后执行未实现PriorityOrdered接口和Ordered接口的...
-				 *
-				 *   其中也涉及到了排序过程
+				 * 6.注册所有bean的后置处理器(BeanPostProcessor),为下一步调用做准备
+				 *  执行过程中按照优先级接口PriorityOrdered，Ordered和其他这三种情况依次执行BeanPostProcessor实现类,其中PriorityOrdered和Ordered涉及到排序
 				 */
 				registerBeanPostProcessors(beanFactory);
 
 				/**
 				 * 7.初始化消息源
-				 * 用来做国际化，消息绑定，消息解析等功能
-				 * 一般在SpringMVC中会使用到.
+				 * 用来做国际化，消息绑定，消息解析等功能,一般在SpringMVC中会使用到.
 				 */
 				initMessageSource();
 
@@ -614,20 +607,20 @@ public abstract class AbstractApplicationContext
 				 *
 				 * 比如：AbstractRefreshableWebApplicationContext中onRefresh方法用来初始化主题能力.
 				 *
-				 * SpringBoot也是在改步骤中启动内嵌Tomcat容器的
+				 * SpringBoot也是在该步骤中启动内嵌Tomcat容器的
 				 */
 				onRefresh();
 
 				/**
 				 * 10. 注册监听器
-				 * 监听器需要实现ApplicationListener接口,将监听器绑定到广播器上，
+				 * 将实现ApplicationListener接口的监听器绑定到广播器上，
 				 * 将监听器对应的beanName绑定到到第8步初始化的事件派发器中，
 				 * 如果之前有发布的事件，则直接通过事件派发器将事件派发出去.
 				 */
 				registerListeners();
 
 				/**
-				 * 11. 初始化所有剩余的单实例Bean(懒加载的Bean除外).整个Spring IOC的核心.
+				 * 11. 初始化所有剩余的单实例Bean(懒加载的Bean除外)，【整个Spring IOC的核心】.
 				 * 包括执行@PostConstruct标注的方法.
 				 * 注意：SpringMVC的父子容器创建Bean的过程：
 				 *   SpringMVC中，存在着父容器和子容器。当父容器启动之后，会通过该方法将所有的Dao和Service对应的Bean创建出来，保存到beanFactory的单例缓存容器中
@@ -941,6 +934,7 @@ public abstract class AbstractApplicationContext
 	}
 
 	/**
+	 * 初始化声明周期处理器，用于处理Bean的生命周期
 	 * Initialize the LifecycleProcessor.
 	 * Uses DefaultLifecycleProcessor if none defined in the context.
 	 * @see org.springframework.context.support.DefaultLifecycleProcessor
@@ -1105,6 +1099,7 @@ public abstract class AbstractApplicationContext
 		 *		}
 		 *	}
 		 */
+		// 1. 初始化此上下文的转换服务
 		if (beanFactory.containsBean(CONVERSION_SERVICE_BEAN_NAME)
 				&& beanFactory.isTypeMatch(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class)) {
 			beanFactory.setConversionService(beanFactory.getBean(CONVERSION_SERVICE_BEAN_NAME, ConversionService.class));

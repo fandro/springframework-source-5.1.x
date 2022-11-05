@@ -94,6 +94,7 @@ public class ProxyProcessorSupport extends ProxyConfig implements Ordered, BeanC
 
 
 	/**
+	 * 有父接口就添加接口到proxyFactory，否则ProxyTargetClass标识为true，使用CGLIB
 	 * Check the interfaces on the given bean class and apply them to the {@link ProxyFactory},
 	 * if appropriate.
 	 * <p>Calls {@link #isConfigurationCallbackInterface} and {@link #isInternalLanguageInterface}

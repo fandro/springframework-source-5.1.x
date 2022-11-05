@@ -30,6 +30,7 @@ import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.util.ObjectUtils;
 
 /**
+ * 发现bean是ApplicationListener类型时添加到容器的监听器列表中
  * {@code BeanPostProcessor} that detects beans which implement the {@code ApplicationListener}
  * interface. This catches beans that can't reliably be detected by {@code getBeanNamesForType}
  * and related operations which only work against top-level beans.
@@ -68,6 +69,7 @@ class ApplicationListenerDetector implements DestructionAwareBeanPostProcessor, 
 
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) {
+		// 如果是单例bean时加入ApplicationListener列表
 		if (bean instanceof ApplicationListener) {
 			// potentially not detected as a listener by getBeanNamesForType retrieval
 			Boolean flag = this.singletonNames.get(beanName);
