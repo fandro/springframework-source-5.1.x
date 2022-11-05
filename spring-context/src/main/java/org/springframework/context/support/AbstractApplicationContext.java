@@ -567,22 +567,17 @@ public abstract class AbstractApplicationContext
 				/**
 				 * 5. 执行beanFactory的后置处理器(BeanFactoryPostProcessor)
 				 *
-				 * 先执行BeanDefinitionRegistryPostProcessor接口的实现类的postProcessBeanDefinitionRegistry方法，
-				 *   执行过程中，也是先执行实现了优先级接口PriorityOrdered的BeanDefinitionRegistryPostProcessor的postProcessBeanDefinitionRegistry方法
-				 *   然后执行实现了Ordered接口的...
-				 *   最后执行未实现PriorityOrdered接口和Ordered接口的...
+				 * 1. 执行BeanDefinitionRegistryPostProcessor接口的postProcessBeanDefinitionRegistry方法，再执行postProcessBeanFactory方法
+				 *   1.1 执行postProcessBeanDefinitionRegistry方法过程中，按照优先级接口PriorityOrdered，Ordered和其他这三种情况依次执行，
+				 *   其中PriorityOrdered和Ordered涉及到排序
+				 *	 1.2 执行BeanDefinitionRegistryPostProcessor接口的postProcessBeanFactory方法
 				 *
-				 * 然后执行BeanFactoryPostProcessor接口的实现类的postProcessBeanFactory方法
-				 *   执行过程中，也是先执行实现了优先级接口PriorityOrdered的BeanFactoryPostProcessor的postProcessBeanFactory方法
-				 *   然后执行实现了Ordered接口的...
-				 *   最后执行未实现PriorityOrdered接口和Ordered接口的...
+				 * 2. 执行剩余的BeanFactoryPostProcessor接口的实现类的postProcessBeanFactory方法
+				 *   按照优先级接口PriorityOrdered，Ordered和其他这三种情况依次执行，其中PriorityOrdered和Ordered涉及到排序
 				 *
-				 *   其中也涉及到了排序过程
-				 *
-				 *  配置类中的Selector类型的组件和@Component,@ComponentScan中的元数据信息也会在该步骤中进行解析
-				 *    还包括执行条件注解@Condition的回调逻辑
-				 *
-				 *  ImportBeanDefinitionRegistrar对应的registerBeanDefinitions方法也会在该步骤中调用，给容器中注册自定义的组件.
+				 * 3. 在执行第一步时，解析了配置类中组件
+				 * 	包括：Selector类型的组件，@Component,@ComponentScan中的元数据信息,条件注解@Condition，
+				 * 	ImportBeanDefinitionRegistrar对应的registerBeanDefinitions方法，给容器中注册自定义的组件.
 				 */
 				invokeBeanFactoryPostProcessors(beanFactory);
 
