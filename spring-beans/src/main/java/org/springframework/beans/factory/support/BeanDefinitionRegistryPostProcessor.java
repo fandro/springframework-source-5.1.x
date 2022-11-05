@@ -32,9 +32,9 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
  */
 
 /**
- * 我们通常在使用 Mybatis + Spring 时，经常用到的 org.mybatis.spring.mapper.MapperScannerConfigurer
+ * 我们通常在使用 Mybatis + Spring时，经常用到的 org.mybatis.spring.mapper.MapperScannerConfigurer
  * 就是一个BeanDefinitionRegistryPostProcessor。MapperScannerConfigurer 在 postProcessBeanDefinitionRegistry 方法中进行了一些操作，
- * 主要是：扫描 basePackage 指定的目录，将该目录下的类（通常是 DAO/MAPPER 接口）封装成 BeanDefinition 并加载到 BeanFactory 中。
+ * 主要是：扫描 basePackage 指定的目录，将该目录下的类（通常是 DAO/MAPPER 接口）封装成BeanDefinition并加载到 BeanFactory 中。
  * 因此，我们可以看到我们项目中的 DAO（MAPPER）接口，通常都没有使用注解或 XML 的方式注册到 Spring 容器，但是我们还是可以在 Service 服务中，
  * 使用 @Autowire 注解来将其注入到 Service 中，就是因为这个原因。
  *

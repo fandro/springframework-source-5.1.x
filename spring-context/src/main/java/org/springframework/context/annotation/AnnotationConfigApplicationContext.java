@@ -41,6 +41,7 @@ import java.util.function.Supplier;
  * {@code @Configuration} class.
  *
  * <p>See {@link Configuration @Configuration}'s javadoc for usage examples.
+ * 根据注解的方式来初始化上下文。支持web的变种形式 AnnotationConfigWebApplicationContext
  *
  * @author Juergen Hoeller
  * @author Chris Beams
@@ -69,7 +70,7 @@ public class AnnotationConfigApplicationContext
 	 * through {@link #register} calls and then manually {@linkplain #refresh refreshed}.
 	 */
 	public AnnotationConfigApplicationContext() {
-		/** 1.使用父类GenericApplicationContext创建默认的Bean工厂: DefaultListableBeanFactory */
+		/** 1.使用父类GenericApplicationContext创建默认的Bean工厂: DefaultListableBeanFactory. */
 
 		/**
 		 * 2.初始化默认的Bean定义读取器，该步骤也会给容器中注册用来处理Spring注解的后置处理器.
@@ -80,7 +81,7 @@ public class AnnotationConfigApplicationContext
 		 * 	(2) AutowiredAnnotationBeanPostProcessor: 用来处理@Autowired和@Value注解
 		 * 	(3) CommonAnnotationBeanPostProcessor: 提供对JSR-250规范注解的支持@javax.annotation.Resource、
 		 * 	    @javax.annotation.PostConstruct 和 @javax.annotation.PreDestroy等的支持。
-		 * 	(4) EventListenerMethodProcessor：提供对@PersistenceContext的支持
+		 * 	(4) EventListenerMethodProcessor：提供对JPA中@PersistenceContext的支持
 		 * 	(5) DefaultEventListenerFactory: 提供对@EventListener的支持
 		 */
 		this.reader = new AnnotatedBeanDefinitionReader(this);
@@ -108,6 +109,7 @@ public class AnnotationConfigApplicationContext
 	}
 
 	/**
+	 * 把指定类注册到容器中
 	 * Create a new AnnotationConfigApplicationContext, deriving bean definitions
 	 * from the given component classes and automatically refreshing the context.
 	 * @param componentClasses one or more component classes &mdash; for example,
@@ -115,7 +117,7 @@ public class AnnotationConfigApplicationContext
 	 */
 	public AnnotationConfigApplicationContext(Class<?>... componentClasses) {
 		// 调用本类的构造函数，创建默认的Bean工厂DefaultListableBeanFactory
-		// 		初始化内置的一些后置处理器【包括：用来解析常用注解@Resource，@Autowired，@Configuration等注解的后置处理器】
+		// 初始化内置的一些后置处理器【包括：用来解析常用注解@Resource，@Autowired，@Configuration等注解的后置处理器】
 
 		// 除此之外，还会初始化Spring容器所需的环境信息对象Environment及资源加载器对象ResourceLoader，还会初始化配置文件解析器
 		this();
@@ -128,6 +130,7 @@ public class AnnotationConfigApplicationContext
 	}
 
 	/**
+	 * 扫描包下的类并注册到容器中.
 	 * Create a new AnnotationConfigApplicationContext, scanning for components
 	 * in the given packages, registering bean definitions for those components,
 	 * and automatically refreshing the context.
@@ -135,9 +138,10 @@ public class AnnotationConfigApplicationContext
 	 */
 	public AnnotationConfigApplicationContext(String... basePackages) {
 		/**
-		 * 注意：使用这种方式。AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry)方法会被调用两次，
-		 * 		在this中会被调用一次，注册Spring中默认的四个后置处理器。
-		 * 		然后在scan方法中，会再次调用该方法，只是调用的时候，bean定义注册中心中已经存在了这个bean定义，所以也不会重复注册.
+		 * 注意：
+		 * 使用这种方式。AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry)方法会被调用两次，
+		 * 在this中会被调用一次，注册Spring中默认的四个后置处理器。
+		 * 然后在scan方法中，会再次调用该方法，只是调用的时候，bean定义注册中心中已经存在了这个bean定义，所以也不会重复注册.
 		 */
 		this();
 
@@ -271,7 +275,7 @@ public class AnnotationConfigApplicationContext
 
 	@Override
 	public <T> void registerBean(@Nullable String beanName, Class<T> beanClass, @Nullable Supplier<T> supplier,
-			BeanDefinitionCustomizer... customizers) {
+								 BeanDefinitionCustomizer... customizers) {
 
 		this.reader.doRegisterBean(beanClass, supplier, beanName, null, customizers);
 	}

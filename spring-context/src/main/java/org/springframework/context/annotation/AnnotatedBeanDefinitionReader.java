@@ -290,7 +290,7 @@ public class AnnotatedBeanDefinitionReader {
 		AnnotationConfigUtils.processCommonDefinitionAnnotations(abd);
 
 		// 如果使用new AnnotationConfigApplicationContext(Class<?> clazz)创建的bean容器，
-		//    则此处的qualifiers和下面的definitionCustomizers都默认为null
+		// 则此处的qualifiers和下面的definitionCustomizers都默认为null
 		if (qualifiers != null) {
 			for (Class<? extends Annotation> qualifier : qualifiers) {
 				if (Primary.class == qualifier) {

@@ -31,6 +31,7 @@ import org.springframework.beans.BeansException;
  * to be fed as an API to other beans (through injection). As such, the
  * {@code getObject()} method has different exception handling behavior.
  *
+ *  一个对象工厂
  * @author Colin Sampaleanu
  * @since 1.0.2
  * @param <T> the object type
@@ -40,6 +41,7 @@ import org.springframework.beans.BeansException;
 public interface ObjectFactory<T> {
 
 	/**
+	 * 返回一个对象
 	 * Return an instance (possibly shared or independent)
 	 * of the object managed by this factory.
 	 * @return the resulting instance

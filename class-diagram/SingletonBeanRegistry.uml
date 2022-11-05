@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.beans.factory.config.SingletonBeanRegistry</OriginalElement>
+  <nodes>
+    <node x="-165.00000000000006" y="304.0">org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory</node>
+    <node x="-185.0" y="146.0">org.springframework.beans.factory.support.FactoryBeanRegistrySupport</node>
+    <node x="153.0" y="224.0">org.springframework.beans.factory.config.ConfigurableListableBeanFactory</node>
+    <node x="-94.0" y="224.0">org.springframework.beans.factory.support.AbstractBeanFactory</node>
+    <node x="125.0" y="146.0">org.springframework.beans.factory.config.ConfigurableBeanFactory</node>
+    <node x="31.25" y="384.0">org.springframework.beans.factory.support.DefaultListableBeanFactory</node>
+    <node x="-178.0" y="66.0">org.springframework.beans.factory.support.DefaultSingletonBeanRegistry</node>
+    <node x="-7.25" y="-14.0">org.springframework.beans.factory.config.SingletonBeanRegistry</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory" target="org.springframework.beans.factory.support.AbstractBeanFactory" relationship="GENERALIZATION">
+      <point x="2.8421709430404007E-14" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.support.DefaultSingletonBeanRegistry" target="org.springframework.beans.factory.config.SingletonBeanRegistry" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="-40.0" y="40.0" />
+      <point x="47.75" y="40.0" />
+      <point x="-55.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.ConfigurableListableBeanFactory" target="org.springframework.beans.factory.config.ConfigurableBeanFactory" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="303.0" y="199.0" />
+      <point x="305.75" y="199.0" />
+      <point x="60.25" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.support.DefaultListableBeanFactory" target="org.springframework.beans.factory.config.ConfigurableListableBeanFactory" relationship="REALIZATION">
+      <point x="65.0" y="-14.0" />
+      <point x="226.25" y="358.0" />
+      <point x="303.0" y="358.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.support.DefaultListableBeanFactory" target="org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory" relationship="GENERALIZATION">
+      <point x="-65.0" y="-14.0" />
+      <point x="96.25" y="358.0" />
+      <point x="19.499999999999943" y="358.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.support.FactoryBeanRegistrySupport" target="org.springframework.beans.factory.support.DefaultSingletonBeanRegistry" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.support.AbstractBeanFactory" target="org.springframework.beans.factory.support.FactoryBeanRegistrySupport" relationship="GENERALIZATION">
+      <point x="-56.75000000000003" y="-14.0" />
+      <point x="-37.25000000000003" y="199.0" />
+      <point x="-40.0" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.support.AbstractBeanFactory" target="org.springframework.beans.factory.config.ConfigurableBeanFactory" relationship="REALIZATION">
+      <point x="56.74999999999997" y="-14.0" />
+      <point x="76.25" y="199.0" />
+      <point x="185.25" y="199.0" />
+      <point x="-60.25" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.config.ConfigurableBeanFactory" target="org.springframework.beans.factory.config.SingletonBeanRegistry" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="245.5" y="40.0" />
+      <point x="157.75" y="40.0" />
+      <point x="55.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="134.0" y="237.99999999999997" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

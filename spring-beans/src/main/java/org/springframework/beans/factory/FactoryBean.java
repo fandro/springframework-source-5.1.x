@@ -58,9 +58,9 @@ import org.springframework.lang.Nullable;
  */
 
 /**
- * 一般情况下，Spring 通过反射机制利用 bean 的  class 属性指定实现类来实例化 bean。
- * 而 FactoryBean 是一种特殊的 bean，它是个工厂 bean，可以自己创建 bean 实例，
- * 如果一个类实现了 FactoryBean 接口，则该类可以自己定义创建实例对象的方法，只需要实现它的 getObject() 方法。
+ * 一般情况下，Spring通过反射机制利用bean的class属性指定实现类来实例化bean。
+ * 而 FactoryBean是一种特殊的bean，它是个工厂bean，可以自己创建bean实例，
+ * 如果一个类实现了FactoryBean接口，则该类可以自己定义创建实例对象的方法，只需要实现它的getObject() 方法。
  */
 public interface FactoryBean<T> {
 

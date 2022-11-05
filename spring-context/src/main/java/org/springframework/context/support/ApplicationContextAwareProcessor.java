@@ -63,13 +63,15 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 	 * Create a new ApplicationContextAwareProcessor for the given context.
 	 */
 	public ApplicationContextAwareProcessor(ConfigurableApplicationContext applicationContext) {
+		// 创建Processort的时候，完成applicationContext的赋值
 		this.applicationContext = applicationContext;
+		// 创建默认的值解析器，用来解析classpath中配置的占位符变量的值
 		this.embeddedValueResolver = new EmbeddedValueResolver(applicationContext.getBeanFactory());
 	}
 
 
 	/**
-	 *
+	 * 该方法在创建Bean的过程中，在Bean初始化方法执行完成之后会被调用
 	 * @param bean the new bean instance
 	 * @param beanName the name of the bean
 	 * @return
@@ -79,14 +81,14 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 	@Nullable
 	public Object postProcessBeforeInitialization(final Object bean, String beanName) throws BeansException {
 		AccessControlContext acc = null;
-
+		// 获取bean工厂中的AccessControlContext，默认为null
 		if (System.getSecurityManager() != null &&
 				(bean instanceof EnvironmentAware || bean instanceof EmbeddedValueResolverAware ||
 						bean instanceof ResourceLoaderAware || bean instanceof ApplicationEventPublisherAware ||
 						bean instanceof MessageSourceAware || bean instanceof ApplicationContextAware)) {
 			acc = this.applicationContext.getBeanFactory().getAccessControlContext();
 		}
-
+		// 由于acc为null，默认该方法不会执行
 		if (acc != null) {
 			AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
 				invokeAwareInterfaces(bean);
@@ -94,13 +96,14 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 			}, acc);
 		}
 		else {
+			// 调用Aware接口的方法
 			// 调用除了BeanNameAware,BeanClassLoaderAware,BeanFactoryAware之外的aware方法.
 			invokeAwareInterfaces(bean);
 		}
 
 		return bean;
 	}
-
+	// 调用Aware方法
 	private void invokeAwareInterfaces(Object bean) {
 		if (bean instanceof Aware) {
 			if (bean instanceof EnvironmentAware) {
@@ -118,12 +121,17 @@ class ApplicationContextAwareProcessor implements BeanPostProcessor {
 			if (bean instanceof MessageSourceAware) {
 				((MessageSourceAware) bean).setMessageSource(this.applicationContext);
 			}
+			// 判断到当前的Bean为ApplicationContextAware的实现类
 			if (bean instanceof ApplicationContextAware) {
+				// 将Bean向上转型为ApplicationContextAware，并回调其
+				// setApplicationContext方法，然后将ioc对象作为参数传入
+				// 在子类中就可以接收到传入的ApplicationContext对象了
 				((ApplicationContextAware) bean).setApplicationContext(this.applicationContext);
 			}
 		}
 	}
 
+	// 创建Bean的过程中，执行完初始化方法之后，接着会被调用.
 	@Override
 	public Object postProcessAfterInitialization(Object bean, String beanName) {
 		return bean;

@@ -64,6 +64,7 @@ import org.springframework.core.annotation.AliasFor;
 public @interface Scope {
 
 	/**
+	 * bean的作用域，和scopeName互为别名
 	 * Alias for {@link #scopeName}.
 	 * @see #scopeName
 	 */
@@ -87,6 +88,9 @@ public @interface Scope {
 	String scopeName() default "";
 
 	/**
+	 * 用于指定Spring在某些作用域生成代理bean时，创建代理的方式，默认是不创建代理
+	 * a.INTERFACES表示使用JDK生成代理，需要代理类去实现接口
+	 * b.TARGET_CLASS表示使用CGLIB生成代理
 	 * Specifies whether a component should be configured as a scoped proxy
 	 * and if so, whether the proxy should be interface-based or subclass-based.
 	 * <p>Defaults to {@link ScopedProxyMode#DEFAULT}, which typically indicates

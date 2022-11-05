@@ -36,7 +36,7 @@ import org.springframework.lang.Nullable;
 /**
  * BeanPostProcessor是Bean的后置处理器，执行过程如下，先给bean的属性赋值，然后执行bean的初始化操作.：
  * (1) populateBean(beanName, mbd, instanceWrapper)，给bean的属性赋值
- * (2)执行初始化操作，初始化包括如下的几步：
+ * (2) 执行初始化操作，初始化包括如下的几步：
  * 		a. applyBeanPostProcessorBeforeInitialization(wrappedBean, beanName)
  * 		b. invokeInitMethod(beanName, wrappedBean, RootBeanDefinition mbd)	执行自定义初始化方法
  * 		c. applyBeanPostProcessorAfterInitialization(wrappedBean, beanName)

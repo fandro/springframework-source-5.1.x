@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.beans.factory.ObjectFactory</OriginalElement>
+  <nodes>
+    <node x="-134.5" y="226.0">org.springframework.beans.factory.ObjectProvider</node>
+    <node x="-93.5" y="-14.0">java.lang.FunctionalInterface</node>
+    <node x="-92.0" y="106.0">org.springframework.beans.factory.ObjectFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.beans.factory.ObjectProvider" target="org.springframework.beans.factory.ObjectFactory" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="-40.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.ObjectFactory" target="java.lang.FunctionalInterface" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.0" showDependencies="false" x="267.0" y="180.0" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

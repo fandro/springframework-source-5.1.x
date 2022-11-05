@@ -166,7 +166,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 			// Configure CGLIB Enhancer...
 			// 创建cglib代理的对象，Enhancer类.
 			// Enhancer既可以完成普通类的代理，也可以完成对接口的代理。
-			// 改类可以创建一个被代理对象的子类，拦截所有的方法调用，包括Object类中的toString方法，但是如果方法类型是final类型的，则不能拦拦截到，这是由于java final语义决定的.
+			// 该类可以创建一个被代理对象的子类，拦截所有的方法调用，包括Object类中的toString方法，但是如果方法类型是final类型的，则不能拦拦截到，这是由于java final语义决定的.
 			Enhancer enhancer = createEnhancer();
 			// 设置类加载器。如果创建代理对象的时候传入了类加载器，则设置到enhancer对象中.
 			if (classLoader != null) {

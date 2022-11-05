@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.core.io.Resource</OriginalElement>
+  <nodes>
+    <node x="1540.4852941176468" y="226.0">org.springframework.web.multipart.MultipartFileResource</node>
+    <node x="-53.0" y="308.0">org.springframework.core.io.WritableResource</node>
+    <node x="1326.4852941176468" y="226.0">org.springframework.core.io.ByteArrayResource</node>
+    <node x="1329.5" y="388.0">org.springframework.core.io.FileSystemResource</node>
+    <node x="93.51102941176475" y="144.0">org.springframework.core.io.ContextResource</node>
+    <node x="837.3014705882352" y="144.0">org.springframework.web.reactive.resource.HttpResource</node>
+    <node x="164.75" y="308.0">org.springframework.web.context.support.ServletContextResource</node>
+    <node x="1300.8014705882351" y="144.0">org.springframework.core.io.AbstractResource</node>
+    <node x="1012.7610294117646" y="226.0">org.springframework.core.io.InputStreamResource</node>
+    <node x="275.80147058823525" y="226.0">org.springframework.core.io.DescriptiveResource</node>
+    <node x="736.0514705882352" y="-14.0">org.springframework.core.io.InputStreamSource</node>
+    <node x="664.3014705882352" y="144.0">org.springframework.web.servlet.resource.HttpResource</node>
+    <node x="500.80147058823525" y="226.0">org.springframework.core.io.AbstractFileResolvingResource</node>
+    <node x="44.22426470588232" y="388.0">org.springframework.core.io.FileUrlResource</node>
+    <node x="558.8014705882352" y="308.0">org.springframework.core.io.ClassPathResource</node>
+    <node x="773.5514705882352" y="64.0">org.springframework.core.io.Resource</node>
+    <node x="772.8014705882352" y="308.0">org.springframework.core.io.UrlResource</node>
+    <node x="1293.8014705882351" y="308.0">org.springframework.web.reactive.resource.TransformedResource</node>
+    <node x="1527.8014705882351" y="308.0">org.springframework.web.servlet.resource.TransformedResource</node>
+    <node x="1780.4852941176468" y="226.0">org.springframework.beans.factory.support.BeanDefinitionResource</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.core.io.FileUrlResource" target="org.springframework.core.io.WritableResource" relationship="REALIZATION">
+      <point x="-41.75" y="-14.0" />
+      <point x="85.97426470588232" y="357.0" />
+      <point x="38.0" y="357.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.web.context.support.ServletContextResource" target="org.springframework.core.io.ContextResource" relationship="REALIZATION">
+      <point x="-57.5" y="-14.0" />
+      <point x="222.25" y="281.0" />
+      <point x="182.01102941176475" y="281.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.UrlResource" target="org.springframework.core.io.AbstractFileResolvingResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="843.3014705882352" y="281.0" />
+      <point x="655.8014705882352" y="281.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.FileSystemResource" target="org.springframework.core.io.WritableResource" relationship="REALIZATION">
+      <point x="-50.25" y="-14.0" />
+      <point x="1379.75" y="357.0" />
+      <point x="37.999999999999886" y="357.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.web.reactive.resource.TransformedResource" target="org.springframework.core.io.ByteArrayResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1400.8014705882351" y="281.0" />
+      <point x="1423.4852941176468" y="281.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.web.context.support.ServletContextResource" target="org.springframework.core.io.AbstractFileResolvingResource" relationship="GENERALIZATION">
+      <point x="57.5" y="-14.0" />
+      <point x="337.25" y="281.0" />
+      <point x="655.8014705882352" y="281.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.web.servlet.resource.TransformedResource" target="org.springframework.core.io.ByteArrayResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1634.8014705882351" y="281.0" />
+      <point x="1423.4852941176468" y="281.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.FileUrlResource" target="org.springframework.core.io.UrlResource" relationship="GENERALIZATION">
+      <point x="41.75" y="-14.0" />
+      <point x="169.47426470588232" y="367.0" />
+      <point x="843.3014705882352" y="367.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.support.BeanDefinitionResource" target="org.springframework.core.io.AbstractResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1894.9852941176468" y="199.0" />
+      <point x="1400.8014705882351" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.AbstractResource" target="org.springframework.core.io.Resource" relationship="REALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1400.8014705882351" y="113.0" />
+      <point x="862.8014705882352" y="113.0" />
+      <point x="29.75" y="14.0" />
+    </edge>
+    <edge source="org.springframework.web.reactive.resource.HttpResource" target="org.springframework.core.io.Resource" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="913.8014705882352" y="123.0" />
+      <point x="648.3014705882352" y="123.0" />
+      <point x="648.3014705882352" y="113.0" />
+      <point x="803.3014705882352" y="113.0" />
+      <point x="-29.75" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.WritableResource" target="org.springframework.core.io.Resource" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="38.0" y="123.0" />
+      <point x="648.3014705882352" y="123.0" />
+      <point x="648.3014705882352" y="113.0" />
+      <point x="803.3014705882352" y="113.0" />
+      <point x="-29.75" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.ContextResource" target="org.springframework.core.io.Resource" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="182.01102941176475" y="123.0" />
+      <point x="648.3014705882352" y="123.0" />
+      <point x="648.3014705882352" y="113.0" />
+      <point x="803.3014705882352" y="113.0" />
+      <point x="-29.75" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.DescriptiveResource" target="org.springframework.core.io.AbstractResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="378.30147058823525" y="199.0" />
+      <point x="1400.8014705882351" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.Resource" target="org.springframework.core.io.InputStreamSource" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.web.multipart.MultipartFileResource" target="org.springframework.core.io.AbstractResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1647.4852941176468" y="199.0" />
+      <point x="1400.8014705882351" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.ByteArrayResource" target="org.springframework.core.io.AbstractResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="1423.4852941176468" y="199.0" />
+      <point x="1400.8014705882351" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.FileSystemResource" target="org.springframework.core.io.AbstractResource" relationship="GENERALIZATION">
+      <point x="50.25" y="-14.0" />
+      <point x="1480.25" y="367.0" />
+      <point x="1769.9852941176468" y="367.0" />
+      <point x="1769.9852941176468" y="199.0" />
+      <point x="1400.8014705882351" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.InputStreamResource" target="org.springframework.core.io.AbstractResource" relationship="GENERALIZATION">
+      <point x="-2.2737367544323206E-13" y="-14.0" />
+      <point x="1118.2610294117644" y="199.0" />
+      <point x="1400.8014705882351" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.web.servlet.resource.HttpResource" target="org.springframework.core.io.Resource" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="740.8014705882352" y="123.0" />
+      <point x="648.3014705882352" y="123.0" />
+      <point x="648.3014705882352" y="113.0" />
+      <point x="803.3014705882352" y="113.0" />
+      <point x="-29.75" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.ClassPathResource" target="org.springframework.core.io.AbstractFileResolvingResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+    <edge source="org.springframework.core.io.AbstractFileResolvingResource" target="org.springframework.core.io.AbstractResource" relationship="GENERALIZATION">
+      <point x="0.0" y="-14.0" />
+      <point x="655.8014705882352" y="199.0" />
+      <point x="1400.8014705882351" y="199.0" />
+      <point x="0.0" y="14.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.8948631781084974" showDependencies="false" x="988.5" y="211.0" />
+  <SelectedNodes>
+    <node>org.springframework.core.io.Resource</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

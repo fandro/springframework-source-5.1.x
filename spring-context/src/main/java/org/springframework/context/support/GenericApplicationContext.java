@@ -82,7 +82,7 @@ import org.springframework.util.Assert;
  * <p>For custom application context implementations that are supposed to read
  * special bean definition formats in a refreshable manner, consider deriving
  * from the {@link AbstractRefreshableApplicationContext} base class.
- *
+ *  Generic表示一般的，不预设指定任何bean定义格式; 例如xml或注释
  * @author Juergen Hoeller
  * @author Chris Beams
  * @since 1.1.2
@@ -92,7 +92,10 @@ import org.springframework.util.Assert;
  * @see org.springframework.beans.factory.support.PropertiesBeanDefinitionReader
  */
 public class GenericApplicationContext extends AbstractApplicationContext implements BeanDefinitionRegistry {
-
+	/**
+	 * GenericApplicationContext基本就是对DefaultListableBeanFactory 做了个简易的封装，几乎所有方法都是使用了DefaultListableBeanFactory的方法去实现.
+	 * 可以采用混合方式处理bean的定义，而不是采用特定的bean定义方式来创建bean
+	 */
 	/**
 	 * 默认的Bean工厂，可以已列表方式获取Bean信息的工厂.
 	 */

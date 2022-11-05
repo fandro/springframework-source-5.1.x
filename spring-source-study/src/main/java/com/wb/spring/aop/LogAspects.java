@@ -35,8 +35,8 @@ public class LogAspects {
 		String methodName = pjp.getSignature().getName();
 		System.out.println("执行Around，目标方法名称为：" + methodName);
 		// 目标方法的参数类型
-		Class[] parameterTypes = ((MethodSignature) pjp.getSignature()).getParameterTypes();
-		// 目标方法的入参
+		Class<?>[] parameterTypes = ((MethodSignature) pjp.getSignature()).getParameterTypes();
+		// 目标方法的入参 parameterTypes
 		Object[] args = pjp.getArgs();
 		System.out.println("执行Around，方法入参为：" + Arrays.toString(args));
 		try {

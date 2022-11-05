@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>org.springframework.beans.factory.Aware</OriginalElement>
+  <nodes>
+    <node x="88.5" y="583.0">org.springframework.beans.factory.BeanClassLoaderAware</node>
+    <node x="128.0" y="103.0">org.springframework.context.annotation.ImportAware</node>
+    <node x="94.0" y="643.0">org.springframework.context.MessageSourceAware</node>
+    <node x="59.5" y="343.0">org.springframework.context.EmbeddedValueResolverAware</node>
+    <node x="106.0" y="43.0">org.springframework.beans.factory.BeanFactoryAware</node>
+    <node x="81.5" y="523.0">org.springframework.context.ApplicationContextAware</node>
+    <node x="54.0" y="463.0">org.springframework.context.ApplicationEventPublisherAware</node>
+    <node x="112.0" y="163.0">org.springframework.beans.factory.BeanNameAware</node>
+    <node x="97.5" y="703.0">org.springframework.web.context.ServletContextAware</node>
+    <node x="93.0" y="283.0">org.springframework.context.ResourceLoaderAware</node>
+    <node x="87.5" y="223.0">org.springframework.jca.context.BootstrapContextAware</node>
+    <node x="106.0" y="403.0">org.springframework.context.EnvironmentAware</node>
+    <node x="-147.0" y="-17.0">org.springframework.beans.factory.Aware</node>
+    <node x="89.0" y="-17.0">org.springframework.context.weaving.LoadTimeWeaverAware</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.springframework.beans.factory.BeanNameAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-89.0" y="0.0" />
+      <point x="21.0" y="177.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.ResourceLoaderAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-108.0" y="0.0" />
+      <point x="21.0" y="297.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.web.context.ServletContextAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-103.5" y="0.0" />
+      <point x="21.0" y="717.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.MessageSourceAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-107.0" y="0.0" />
+      <point x="21.0" y="657.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.ApplicationContextAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-119.5" y="0.0" />
+      <point x="21.0" y="537.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.BeanClassLoaderAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-112.5" y="0.0" />
+      <point x="21.0" y="597.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.ApplicationEventPublisherAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-147.0" y="0.0" />
+      <point x="21.0" y="477.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.weaving.LoadTimeWeaverAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-112.0" y="0.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.EnvironmentAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-95.0" y="0.0" />
+      <point x="21.0" y="417.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.EmbeddedValueResolverAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-141.5" y="0.0" />
+      <point x="21.0" y="357.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.beans.factory.BeanFactoryAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-95.0" y="0.0" />
+      <point x="21.0" y="57.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.context.annotation.ImportAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-73.0" y="0.0" />
+      <point x="21.0" y="117.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+    <edge source="org.springframework.jca.context.BootstrapContextAware" target="org.springframework.beans.factory.Aware" relationship="INTERFACE_GENERALIZATION">
+      <point x="-113.5" y="0.0" />
+      <point x="21.0" y="237.0" />
+      <point x="21.0" y="-3.0" />
+      <point x="48.0" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.0" showDependencies="false" x="100.5" y="357.0" />
+  <SelectedNodes>
+    <node>org.springframework.beans.factory.Aware</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

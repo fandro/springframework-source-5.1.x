@@ -77,7 +77,7 @@ import org.springframework.web.context.ContextLoader;
  * definitions will override ones defined in earlier loaded files. This can be leveraged
  * to deliberately override certain bean definitions via an extra {@code @Configuration}
  * class.
- *
+ * 根据注解的方式来初始化上下文。支持web的变种形式 AnnotationConfigWebApplicationContext
  * @author Chris Beams
  * @author Juergen Hoeller
  * @since 3.0
@@ -196,7 +196,9 @@ public class AnnotationConfigWebApplicationContext extends AbstractRefreshableWe
 	 */
 	@Override
 	protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) {
+		// 主要提供了Bean的读取，以及各种处理器的提前注入，包括了自动注入的处理器（AutowiredAnnotationBeanPostProcessor）
 		AnnotatedBeanDefinitionReader reader = getAnnotatedBeanDefinitionReader(beanFactory);
+		// 主要提供了查询Classpath路径下面的Bean对象，并且转换为BeanDefinition后注册到容器当中
 		ClassPathBeanDefinitionScanner scanner = getClassPathBeanDefinitionScanner(beanFactory);
 
 		BeanNameGenerator beanNameGenerator = getBeanNameGenerator();

@@ -154,6 +154,9 @@ public interface ConfigurableApplicationContext extends ApplicationContext, Life
 	void addProtocolResolver(ProtocolResolver resolver);
 
 	/**
+	 * 加载或刷新配置，该配置可能是XML文件、属性文件或关系数据库模式。
+	 * 由于这是一种启动方法，如果失败，它应该销毁已经创建的单例，以避免悬空资源。
+	 * 换句话说，在调用该方法之后，应该实例化所有或根本不实例化单个元素。
 	 * Load or refresh the persistent representation of the configuration,
 	 * which might an XML file, properties file, or relational database schema.
 	 * <p>As this is a startup method, it should destroy already created singletons

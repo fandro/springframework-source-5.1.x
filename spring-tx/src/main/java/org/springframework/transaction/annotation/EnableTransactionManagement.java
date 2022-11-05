@@ -156,6 +156,7 @@ import org.springframework.core.Ordered;
 public @interface EnableTransactionManagement {
 
 	/**
+	 * 表示是否使用CGLIB创建代理对象，默认不使用CGLIB.
 	 * Indicate whether subclass-based (CGLIB) proxies are to be created ({@code true}) as
 	 * opposed to standard Java interface-based proxies ({@code false}). The default is
 	 * {@code false}. <strong>Applicable only if {@link #mode()} is set to
@@ -166,12 +167,11 @@ public @interface EnableTransactionManagement {
 	 * {@code @Async} annotation will be upgraded to subclass proxying at the same
 	 * time. This approach has no negative impact in practice unless one is explicitly
 	 * expecting one type of proxy vs another, e.g. in tests.
-	 *
-	 * 表示是否使用CGLIB创建代理对象，默认不使用CGLIB.
 	 */
 	boolean proxyTargetClass() default false;
 
 	/**
+	 * 默认的代理模式为PROXY. 即：JDK的动态代理.
 	 * Indicate how transactional advice should be applied.
 	 * <p><b>The default is {@link AdviceMode#PROXY}.</b>
 	 * Please note that proxy mode allows for interception of calls through the proxy
@@ -180,17 +180,15 @@ public @interface EnableTransactionManagement {
 	 * ignored since Spring's interceptor does not even kick in for such a runtime
 	 * scenario. For a more advanced mode of interception, consider switching this to
 	 * {@link AdviceMode#ASPECTJ}.
-	 *
-	 * 默认的代理模式为PROXY. 即：JDK的动态代理
 	 */
 	AdviceMode mode() default AdviceMode.PROXY;
 
 	/**
+	 * 用来指定带有事务功能的方法的执行顺序。例如：如果项目中存在着使用切面完成的数据源的主从切换功能
+	 * 事务方法需要在切换完数据源之后再去执行。一般不需要指定，默认就是优先级最低，最后执行.
 	 * Indicate the ordering of the execution of the transaction advisor
 	 * when multiple advices are applied at a specific joinpoint.
 	 * <p>The default is {@link Ordered#LOWEST_PRECEDENCE}.
-	 * 用来指定带有事务功能的方法的执行顺序。例如：如果项目中存在着使用切面完成的数据源的主从切换功能
-	 * 事务方法需要在切换完数据源之后再去执行。一般不需要指定，默认就是优先级最低，最后执行
 	 */
 	int order() default Ordered.LOWEST_PRECEDENCE;
 

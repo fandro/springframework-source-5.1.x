@@ -14,7 +14,7 @@ public class TestMain {
 
 		ApplicationContext acx = new AnnotationConfigApplicationContext(BeanConfig.class);
 
-//		InstA obj = (InstA) acx.getBean("instA");
-//		System.out.println(obj);
+		InstA obj = (InstA) acx.getBean("instA");
+		System.out.println(obj);
 	}
 }

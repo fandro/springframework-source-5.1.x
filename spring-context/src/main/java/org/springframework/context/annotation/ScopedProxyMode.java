@@ -42,7 +42,7 @@ public enum ScopedProxyMode {
 	 * {@link #INTERFACES} or {@link #TARGET_CLASS} proxy-modes instead if it
 	 * is to be used as a dependency.
 	 *
-	 * 不是用代理
+	 * 不使用代理
 	 */
 	NO,
 

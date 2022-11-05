@@ -41,12 +41,12 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @since 2.5.1
  *
- * 用来对工厂bean的注册提供支持. 在DefaultSingletonBeanRegistry进行扩展而来
+ * 用来对FactoryBean的注册提供支持. 在DefaultSingletonBeanRegistry进行扩展而来
  */
 public abstract class FactoryBeanRegistrySupport extends DefaultSingletonBeanRegistry {
 
 	/**
-	 * 用来缓存由FactoryBean创建的bean对象，key为beanName
+	 * 缓存FactoryBean创建的bean对象，key为beanName
 	 */
 	private final Map<String, Object> factoryBeanObjectCache = new ConcurrentHashMap<>(16);
 

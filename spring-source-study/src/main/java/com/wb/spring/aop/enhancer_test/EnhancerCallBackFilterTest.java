@@ -20,7 +20,7 @@ public class EnhancerCallBackFilterTest {
 
 	public static void main(String[] args) {
 		Enhancer enhancer = new Enhancer();
-		CallbackHelper callbackHelper = new CallbackHelper(CallbackHelper.class, new Class[0]) {
+		CallbackHelper callbackHelper = new CallbackHelper(CallbackHelper.class, new Class<>[0]) {
 			@Override
 			protected Object getCallback(Method method) {
 				if (method.getDeclaringClass() != Object.class &&

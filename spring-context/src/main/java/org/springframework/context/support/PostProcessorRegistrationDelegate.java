@@ -41,7 +41,24 @@ final class PostProcessorRegistrationDelegate {
 	private PostProcessorRegistrationDelegate() {
 	}
 
-
+	/**
+	 * BeanFactoryPostProcessor 修改bean的属性值信息。
+	 * BeanDefinitionRegistry 是 BeanFactoryPostProcessor 的子类，又增加了增删改查BeanDefinition的操作。
+	 * 总体思路：先修改BeanDefinition信息，再修改bean属性值信息
+	 * 第一阶段：执行BeanDefinitionRegistry后置处理器
+	 * 1. 执行BeanDefinitionRegistryPostProcessor的postProcessBeanDefinitionRegistry方法
+	 * 	执行传参beanFactoryPostProcessors中的BeanDefinitionRegistryPostProcessor的postProcessBeanDefinitionRegistry方法，
+	 *         执行过程中会初始化Configuration类中bean信息，并实例化
+	 * 2 执行容器中的BeanDefinitionRegistryPostProcessor的postProcessBeanDefinitionRegistry方法
+	 * 	按类型PriorityOrdered，Ordered和其他类型依次分别进行排序后，再执行排序后执行postProcessBeanDefinitionRegistry方法
+	 * 3 执行BeanDefinitionRegistryPostProcessor的postProcessBeanFactory方法
+	 * 4 执行其他BeanFactoryPostProcessors的postProcessBeanFactory方法
+	 *
+	 * 第二阶段：执行其他的BeanFactoryPostProcessors后置处理器
+	 *	对剩余的BeanFactoryPostProcessors按类型PriorityOrdered，Ordered和其他类型依次分别进行排序后，再执行排序后执行postProcessBeanFactory方法
+	 * @param beanFactory
+	 * @param beanFactoryPostProcessors
+	 */
 	public static void invokeBeanFactoryPostProcessors(ConfigurableListableBeanFactory beanFactory,
 			List<BeanFactoryPostProcessor> beanFactoryPostProcessors) {
 
@@ -53,6 +70,7 @@ final class PostProcessorRegistrationDelegate {
 		 * 所以此处判断里面的结果为true.
 		 *
 		 * BeanDefinitionRegistry接口中定义了操作bean定义的常用方法。如：注册bean定义，移除bean定义，获取bean定义的数量，判断是否包含指定的bean定义等...
+		 * 当beanFactory是DefaultListableBeanFactory时，因是DefaultListableBeanFactoryBeanDefinitionRegistry子类，所以会走下面逻辑.
 		 */
 		if (beanFactory instanceof BeanDefinitionRegistry) {
 			BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
@@ -73,6 +91,7 @@ final class PostProcessorRegistrationDelegate {
 				if (postProcessor instanceof BeanDefinitionRegistryPostProcessor) {
 					BeanDefinitionRegistryPostProcessor registryProcessor = (BeanDefinitionRegistryPostProcessor) postProcessor;
 					// 直接执行BeanDefinitionRegistryPostProcessor接口的postProcessBeanDefinitionRegistry方法.
+					// spring中只有一个ConfigurationClassPostProcessor，处理配置类信息
 					registryProcessor.postProcessBeanDefinitionRegistry(registry);
 					// 添加到registryProcessors中，用于最后执行postProcessBeanFactory方法
 					registryProcessors.add(registryProcessor);
@@ -120,7 +139,7 @@ final class PostProcessorRegistrationDelegate {
 
 			// 查找所有实现了BeanDefinitionRegistryPostProcessor接口的实现类
 			// 重复查找是因为上面执行完了所有的BeanDefinitionRegistryPostProcessor类之后，可能又新增了其他的BeanDefinitionRegistryPostProcessor。
-			//    比如：有一个自定义的BeanDefinitionRegistryPostProcessor中实现了PriorityOrdered接口之后，同时实现了BeanDefinitionRegistryPostProcessor接口.
+			// 比如：有一个自定义的BeanDefinitionRegistryPostProcessor中实现了PriorityOrdered接口之后，同时实现了BeanDefinitionRegistryPostProcessor接口.
 			postProcessorNames = beanFactory.getBeanNamesForType(BeanDefinitionRegistryPostProcessor.class, true, false);
 			for (String ppName : postProcessorNames) {
 				// 校验是否实现了Ordered接口，并且之前未执行过

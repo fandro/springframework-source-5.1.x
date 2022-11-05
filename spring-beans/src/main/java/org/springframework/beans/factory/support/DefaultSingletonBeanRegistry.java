@@ -27,6 +27,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 单例bean的注册容器.
  * Generic registry for shared bean instances, implementing the
  * {@link org.springframework.beans.factory.config.SingletonBeanRegistry}.
  * Allows for registering singleton instances that should be shared
@@ -61,21 +62,25 @@ public class DefaultSingletonBeanRegistry extends SimpleAliasRegistry implements
 	/**
 	 * Cache of singleton objects: bean name to bean instance.
 	 * 一级缓存：单例对象的缓存，也被称作单例缓存池
+	 * 用于保存BeanName和创建bean实例之间的关系，bean name --> bean instance
 	 */
 	private final Map<String, Object> singletonObjects = new ConcurrentHashMap<>(256);
 	/**
 	 * Cache of early singleton objects: bean name to bean instance.
 	 * 二级缓存：提前曝光的单例对象的缓存，用于检测循环引用
+	 * 也是保存BeanName和创建bean实例之间的关系，与singletonObjects不同之处是，当一个单例bean被放到这里时，那么当bean还在创建过程中，
+	 * 就可以通过getBean方法获取到了，其目的是用来检测循环引用的
 	 */
 	private final Map<String, Object> earlySingletonObjects = new HashMap<>(16);
 	/**
 	 * Cache of singleton factories: bean name to ObjectFactory.
 	 * 三级缓存：保存对单实例bean的包装对象
+	 * 用于保存BeanName和创建bean的工厂之间的关系，bean name --> ObjectFactory
 	 */
 	private final Map<String, ObjectFactory<?>> singletonFactories = new HashMap<>(16);
 
 	/**
-	 * 按照注册顺序所保存的已经注册的单例对象的名称
+	 * 用于保存当前所用已注册的单例bean的名称, 保存了bean的注册顺序
 	 */
 	private final Set<String> registeredSingletons = new LinkedHashSet<>(256);
 

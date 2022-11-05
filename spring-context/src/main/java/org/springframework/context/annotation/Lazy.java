@@ -62,6 +62,8 @@ import java.lang.annotation.Target;
 public @interface Lazy {
 
 	/**
+	 * 标记是否为懒加载，默认值为true。
+	 * 所以可以直接标注注解，不指定value属性
 	 * Whether lazy initialization should occur.
 	 */
 	boolean value() default true;
